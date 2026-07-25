@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-25T01:27:53Z",
+  "updated_at": "2026-07-25T07:48:02Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1867,
+  "total": 1855,
   "bounties": [
     {
       "id": 16275,
@@ -3132,18 +3132,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13743,
-      "title": "[Bounty Claim] Code Review Bounty #73 — Scottcjn/rustchain-bounties#13691",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13743",
-      "state": "open",
-      "created_at": "2026-06-10T13:09:11Z",
-      "updated_at": "2026-07-11T05:10:35Z",
-      "comments": 3,
-      "author": "MolhamHamwi",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13740,
       "title": "[Bounty Claim] BoTTube #1383 - 18 nginx-404 /api/v1/* resource collection + sub-resource + per-user + wallet surfaces (Bounty #1102, 90 RTC, @jdjioe5-cpu)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13740",
@@ -3288,54 +3276,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13720,
-      "title": "[Bounty Claim] Bottube PR #1344 - Bridge history limit validation hardening (Bounty #1009, 40 RTC, @mz13stars-cpu)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13720",
-      "state": "open",
-      "created_at": "2026-06-10T05:27:10Z",
-      "updated_at": "2026-07-10T06:00:35Z",
-      "comments": 1,
-      "author": "mz13stars-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13719,
-      "title": "[CLAIM] First Light — First RustChain Contribution (Bounty #12025, 3 RTC, @mz13stars-cpu)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13719",
-      "state": "open",
-      "created_at": "2026-06-10T05:25:18Z",
-      "updated_at": "2026-07-10T06:00:37Z",
-      "comments": 1,
-      "author": "mz13stars-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13718,
-      "title": "[CLAIM] First Light — First RustChain Contribution (Bounty #12025, 3 RTC, @mz13stars-cpu)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13718",
-      "state": "open",
-      "created_at": "2026-06-10T05:24:51Z",
-      "updated_at": "2026-07-10T06:00:38Z",
-      "comments": 1,
-      "author": "mz13stars-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13717,
-      "title": "[CLAIM] Beacon Atlas Tier A — mz13stars-cpu registration + proof of commerce (Bounty #3418, 5 RTC)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13717",
-      "state": "open",
-      "created_at": "2026-06-10T05:24:51Z",
-      "updated_at": "2026-07-11T05:10:38Z",
-      "comments": 1,
-      "author": "mz13stars-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13716,
       "title": "[Bounty Claim] RustChain PR #7282 - Harden Explorer miner and health rendering (Bounty #1009)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13716",
@@ -3404,30 +3344,6 @@
       "updated_at": "2026-06-25T16:36:21Z",
       "comments": 0,
       "author": "jdjioe5-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13706,
-      "title": "[Bounty Claim] RustChain PR #7287 - Harden claims page DOM rendering (Bounty #1009)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13706",
-      "state": "open",
-      "created_at": "2026-06-10T04:29:33Z",
-      "updated_at": "2026-07-10T06:00:40Z",
-      "comments": 1,
-      "author": "MolhamHamwi",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13705,
-      "title": "[Bounty Claim] RustChain PR #7288 - Neutralize spreadsheet formulas in CSV exports (Bounty #1009)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13705",
-      "state": "open",
-      "created_at": "2026-06-10T04:28:51Z",
-      "updated_at": "2026-07-10T06:00:42Z",
-      "comments": 1,
-      "author": "MolhamHamwi",
       "labels": [],
       "agents_welcome": false
     },
@@ -4116,18 +4032,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13595,
-      "title": "[Bounty Claim] Vintage miner setup guide for #2150 (Bounty #2150, 50 RTC, Issue #2150)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13595",
-      "state": "open",
-      "created_at": "2026-06-09T15:01:42Z",
-      "updated_at": "2026-07-10T06:00:46Z",
-      "comments": 1,
-      "author": "mukejane",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13594,
       "title": "[Bounty Claim] Bug Report - 3 nginx proxy-pass drift routes on rustchain.org (Bounty #305, 5 RTC)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13594",
@@ -4232,54 +4136,6 @@
       "updated_at": "2026-06-25T16:38:34Z",
       "comments": 0,
       "author": "jdjioe5-cpu",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13582,
-      "title": "[CLAIM] Code review bounty - rustchain-bounties PR #13579",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13582",
-      "state": "open",
-      "created_at": "2026-06-09T13:06:11Z",
-      "updated_at": "2026-07-10T06:00:47Z",
-      "comments": 2,
-      "author": "2891593122",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13581,
-      "title": "[CLAIM] Code review bounty - rustchain-bounties PR #13540",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13581",
-      "state": "open",
-      "created_at": "2026-06-09T13:03:39Z",
-      "updated_at": "2026-07-10T06:00:49Z",
-      "comments": 2,
-      "author": "2891593122",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13580,
-      "title": "[CLAIM] Code review bounty - rustchain-bounties PR #13578",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13580",
-      "state": "open",
-      "created_at": "2026-06-09T13:02:44Z",
-      "updated_at": "2026-07-10T06:00:50Z",
-      "comments": 2,
-      "author": "2891593122",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13577,
-      "title": "[CLAIM] Code review bounty - rustchain-bounties PR #13563",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13577",
-      "state": "open",
-      "created_at": "2026-06-09T13:01:55Z",
-      "updated_at": "2026-07-10T06:00:52Z",
-      "comments": 2,
-      "author": "2891593122",
       "labels": [],
       "agents_welcome": false
     },
@@ -20438,7 +20294,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
       "state": "open",
       "created_at": "2026-03-17T02:05:49Z",
-      "updated_at": "2026-07-24T19:26:06Z",
+      "updated_at": "2026-07-25T02:41:27Z",
       "comments": 355,
       "author": "Scottcjn",
       "labels": [
@@ -20494,7 +20350,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
       "state": "open",
       "created_at": "2026-03-16T18:12:44Z",
-      "updated_at": "2026-07-24T19:25:07Z",
+      "updated_at": "2026-07-25T02:40:48Z",
       "comments": 43,
       "author": "Scottcjn",
       "labels": [],
