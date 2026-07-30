@@ -1,8 +1,20 @@
 {
-  "updated_at": "2026-07-30T01:16:51Z",
+  "updated_at": "2026-07-30T08:04:28Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1856,
+  "total": 1857,
   "bounties": [
+    {
+      "id": 16319,
+      "title": "Bounty #1102 claim: BoTTube #1612 homepage locale mismatch",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16319",
+      "state": "open",
+      "created_at": "2026-07-30T02:58:31Z",
+      "updated_at": "2026-07-30T02:58:31Z",
+      "comments": 0,
+      "author": "qiann0512-gif",
+      "labels": [],
+      "agents_welcome": false
+    },
     {
       "id": 16312,
       "title": "[Bounty #1102 claim: 3 RTC] Bottube #1612 - homepage body not localized when language selector set to ES",
@@ -236,8 +248,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16240",
       "state": "open",
       "created_at": "2026-07-19T21:33:52Z",
-      "updated_at": "2026-07-29T04:56:29Z",
-      "comments": 10,
+      "updated_at": "2026-07-30T02:24:57Z",
+      "comments": 12,
       "author": "Scottcjn",
       "labels": [
         "bounty",
@@ -659,8 +671,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14608",
       "state": "open",
       "created_at": "2026-06-30T00:24:10Z",
-      "updated_at": "2026-06-30T00:24:10Z",
-      "comments": 0,
+      "updated_at": "2026-07-30T04:55:35Z",
+      "comments": 1,
       "author": "FakerHideInBush",
       "labels": [],
       "agents_welcome": false
@@ -683,8 +695,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14601",
       "state": "open",
       "created_at": "2026-06-29T14:01:20Z",
-      "updated_at": "2026-06-29T14:01:20Z",
-      "comments": 0,
+      "updated_at": "2026-07-30T04:55:37Z",
+      "comments": 1,
       "author": "FakerHideInBush",
       "labels": [],
       "agents_welcome": false
@@ -935,8 +947,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/14517",
       "state": "open",
       "created_at": "2026-06-27T06:32:04Z",
-      "updated_at": "2026-06-27T08:45:59Z",
-      "comments": 1,
+      "updated_at": "2026-07-30T04:55:53Z",
+      "comments": 2,
       "author": "nkar123412-hub",
       "labels": [],
       "agents_welcome": false
@@ -20334,7 +20346,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
       "state": "open",
       "created_at": "2026-03-17T02:05:49Z",
-      "updated_at": "2026-07-29T19:17:08Z",
+      "updated_at": "2026-07-30T02:27:13Z",
       "comments": 361,
       "author": "Scottcjn",
       "labels": [
@@ -20390,7 +20402,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
       "state": "open",
       "created_at": "2026-03-16T18:12:44Z",
-      "updated_at": "2026-07-29T19:16:23Z",
+      "updated_at": "2026-07-30T02:26:10Z",
       "comments": 47,
       "author": "Scottcjn",
       "labels": [
@@ -22636,8 +22648,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/71",
       "state": "open",
       "created_at": "2026-02-06T01:13:53Z",
-      "updated_at": "2026-07-30T00:24:27Z",
-      "comments": 477,
+      "updated_at": "2026-07-30T06:20:09Z",
+      "comments": 479,
       "author": "Scottcjn",
       "labels": [
         "bounty",
