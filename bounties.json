@@ -1,8 +1,44 @@
 {
-  "updated_at": "2026-08-07T06:57:51Z",
+  "updated_at": "2026-08-07T12:36:43Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1676,
+  "total": 1679,
   "bounties": [
+    {
+      "id": 16401,
+      "title": "Bounty claim: BoTTube docstring PR #1649 batch 17 (12 functions, 6.0 RTC)",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16401",
+      "state": "open",
+      "created_at": "2026-08-07T12:32:12Z",
+      "updated_at": "2026-08-07T12:32:12Z",
+      "comments": 0,
+      "author": "Vyacheslav-Tomashevskiy",
+      "labels": [],
+      "agents_welcome": false
+    },
+    {
+      "id": 16400,
+      "title": "Bounty claim: BoTTube docstring PR #1648 batch 16 (13 functions, 6.5 RTC)",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16400",
+      "state": "open",
+      "created_at": "2026-08-07T12:27:51Z",
+      "updated_at": "2026-08-07T12:27:51Z",
+      "comments": 0,
+      "author": "Vyacheslav-Tomashevskiy",
+      "labels": [],
+      "agents_welcome": false
+    },
+    {
+      "id": 16399,
+      "title": "Bounty claim: BoTTube docstring PR #1647 batch 15 (15 functions, 7.5 RTC)",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16399",
+      "state": "open",
+      "created_at": "2026-08-07T08:12:52Z",
+      "updated_at": "2026-08-07T08:12:52Z",
+      "comments": 0,
+      "author": "Vyacheslav-Tomashevskiy",
+      "labels": [],
+      "agents_welcome": false
+    },
     {
       "id": 16398,
       "title": "Bounty claim: BoTTube docstring PR #1646 batch 14 (18 functions, 9.0 RTC)",
@@ -18174,7 +18210,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
       "state": "open",
       "created_at": "2026-03-17T02:05:49Z",
-      "updated_at": "2026-08-07T00:01:12Z",
+      "updated_at": "2026-08-07T07:17:04Z",
       "comments": 364,
       "author": "Scottcjn",
       "labels": [
@@ -18230,7 +18266,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
       "state": "open",
       "created_at": "2026-03-16T18:12:44Z",
-      "updated_at": "2026-08-07T00:00:33Z",
+      "updated_at": "2026-08-07T07:15:48Z",
       "comments": 48,
       "author": "Scottcjn",
       "labels": [
