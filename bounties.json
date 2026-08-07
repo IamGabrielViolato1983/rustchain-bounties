@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-07T16:54:12Z",
+  "updated_at": "2026-08-07T17:10:30Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1536,
+  "total": 1534,
   "bounties": [
     {
       "id": 16402,
@@ -16199,21 +16199,6 @@
       "agents_welcome": false
     },
     {
-      "id": 2786,
-      "title": "[ONBOARD: 3 RTC] Compare RustChain to Another Blockchain Project",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2786",
-      "state": "open",
-      "created_at": "2026-04-02T15:42:09Z",
-      "updated_at": "2026-08-03T21:45:36Z",
-      "comments": 2071,
-      "author": "Scottcjn",
-      "labels": [
-        "bounty",
-        "community"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 2784,
       "title": "[ONBOARD: 3 RTC] Test the Miner and Post Your Hardware Report",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2784",
@@ -16221,20 +16206,6 @@
       "created_at": "2026-04-02T15:41:51Z",
       "updated_at": "2026-08-01T18:42:49Z",
       "comments": 80,
-      "author": "Scottcjn",
-      "labels": [
-        "bounty"
-      ],
-      "agents_welcome": false
-    },
-    {
-      "id": 2782,
-      "title": "[ONBOARD: 2 RTC] Review an Open PR",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2782",
-      "state": "open",
-      "created_at": "2026-04-02T15:41:31Z",
-      "updated_at": "2026-08-03T21:44:19Z",
-      "comments": 1461,
       "author": "Scottcjn",
       "labels": [
         "bounty"
