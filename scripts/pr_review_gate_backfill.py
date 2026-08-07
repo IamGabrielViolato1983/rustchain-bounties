@@ -68,20 +68,32 @@ def list_unprocessed(gate):
         print("::error::could not parse issue list", file=sys.stderr)
         return []
 
-    pending = []
+    never, stranded = [], []
     for i in issues:
         labels = {l["name"] for l in i.get("labels", [])}
-        if PROCESSED_LABEL in labels:
-            continue
         if not gate.is_review_claim(i.get("title") or ""):
             continue
-        pending.append(i["number"])
+        if "bounty-eligible" in labels:
+            continue                       # adjudicated and payable; done
+        if "needs-human" in labels:
+            # Unresolved, not decided. These are stranded by construction:
+            # once flagged, the gate's idempotency check skipped them forever,
+            # so every later fix to the gate left its own past victims behind.
+            # Re-adjudicating is how a fix reaches them. Retries stay silent
+            # unless the verdict improves, so this costs no notification noise.
+            stranded.append(i["number"])
+        elif PROCESSED_LABEL not in labels:
+            never.append(i["number"])
     # Oldest first: the longest-waiting contributor gets an answer first.
-    return sorted(pending)
+    # Never-adjudicated claims lead, since nobody has told those people
+    # anything at all.
+    return sorted(never), sorted(stranded)
 
 
-def adjudicate(number):
+def adjudicate(number, retry=False):
     env = {**os.environ, "ISSUE_NUMBER": str(number)}
+    if retry:
+        env["RETRY_NEEDS_HUMAN"] = "1"
     r = subprocess.run(
         [sys.executable, str(SCRIPT_DIR / "pr_review_gate.py")],
         capture_output=True, text=True, timeout=120, env=env,
@@ -94,21 +106,29 @@ def adjudicate(number):
 
 def main():
     gate = _load_gate()
-    pending = list_unprocessed(gate)
-    total = len(pending)
-    batch = pending[:MAX_PER_RUN]
-    print(f"gate-backfill: {total} unadjudicated review claims; processing {len(batch)}")
+    never, stranded = list_unprocessed(gate)
+    total = len(never) + len(stranded)
+    # Never-adjudicated claims get the budget first: those contributors have
+    # heard nothing at all, whereas a stranded claim at least got a verdict.
+    batch_new = never[:MAX_PER_RUN]
+    batch_retry = stranded[:max(0, MAX_PER_RUN - len(batch_new))]
+    print(f"gate-backfill: {len(never)} never-adjudicated, {len(stranded)} stranded "
+          f"on needs-human; processing {len(batch_new)}+{len(batch_retry)}")
 
     done = 0
-    for n in batch:
+    for n in batch_new:
         if adjudicate(n):
             done += 1
+    for n in batch_retry:
+        if adjudicate(n, retry=True):
+            done += 1
 
-    remaining = total - len(batch)
-    print(f"gate-backfill: adjudicated {done}/{len(batch)}")
+    processed = len(batch_new) + len(batch_retry)
+    remaining = total - processed
+    print(f"gate-backfill: adjudicated {done}/{processed}")
     if remaining > 0:
         # Never let a bound look like completion.
-        print(f"::notice::{remaining} claims still unadjudicated "
+        print(f"::notice::{remaining} claims still pending "
               f"(MAX_PER_RUN={MAX_PER_RUN}); they process on the next run.")
     return 0
 

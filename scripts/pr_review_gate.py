@@ -57,6 +57,38 @@ def pr_ref(title, body):
         m = re.search(r'#(\d{3,6})', stripped)
         if m: return None, m.group(1)
     return None, None
+
+def prose_repo(title, body):
+    """Candidate repo NAME when a claim names it in prose, not as a URL.
+
+    Claims are routinely written as "Code review bounty #73 for
+    rustchain-bounties PR #13434" or "Code Review - Scottcjn/rustchain-dialup
+    PR #4". pr_ref() only extracts a repo from a full github.com/<o>/<r>/pull/N
+    URL, so these resolve to (None, N) and the caller falls back to
+    TARGET_REPO. It then looks up a number that belongs to a DIFFERENT repo,
+    gets nothing, and files the claim as needs-human.
+
+    That is not a fringe case: on 2026-08-07 it accounted for 7 of the 13
+    unadjudicated claims that had to be paid out partially by hand.
+
+    Returns a bare repo name (no owner) or None. Deliberately does NOT verify
+    the repo exists -- the caller validates by attempting the lookup, so a
+    false positive costs one extra API call and nothing else.
+    """
+    for s in (title, body or ""):
+        if not s:
+            continue
+        # "owner/repo#123" or "owner/repo PR #123"
+        m = re.search(r'\b[\w.-]+/([\w.-]+?)\s*(?:#|\bPR\s*#?\s*)(\d{1,6})\b', s, re.I)
+        if m:
+            return m.group(1)
+        # "<repo-name> PR #123" -- require a hyphen or a known product prefix
+        # so ordinary words ("the PR #12", "this PR #12") cannot match.
+        m = re.search(r'\b((?:[\w.]+-[\w.-]+)|(?:rustchain|bottube|beacon|grazer)[\w.-]*)'
+                      r'\s+PR\s*#?\s*(\d{1,6})\b', s, re.I)
+        if m:
+            return m.group(1)
+    return None
 def native_wallet(body):
     b=body or ""
     if re.search(r'\bRTC[0-9a-fA-F]{40}\b', b) or re.search(r'(?i)miner[_\-]?id', b): return True
@@ -229,17 +261,57 @@ def add_label(n, lab): api(f"/repos/{REPO}/issues/{n}/labels","POST",{"labels":[
 def close(n, reason_comment):
     comment(n, reason_comment); api(f"/repos/{REPO}/issues/{n}","PATCH",{"state":"closed","state_reason":"not_planned"})
 
+def _unresolved(msg, quiet):
+    """Flag a claim the gate could not decide.
+
+    On a RETRY_NEEDS_HUMAN pass the claim is ALREADY labelled and the claimant
+    has already been told. Re-commenting the same verdict every sweep would
+    turn a helpful retry into notification spam, so a retry that fails to
+    improve on the previous outcome exits without speaking.
+    """
+    if quiet:
+        return
+    add_label(NUM, "needs-human")
+    comment(NUM, msg)
+
 def main():
     iss=api(f"/repos/{REPO}/issues/{NUM}")
     if not iss or iss.get("state")!="open": return
     labels={l["name"] for l in iss.get("labels",[])}
-    if {"bounty-eligible","needs-human","gate-processed"} & labels: return  # idempotent
+    # Idempotency, with one deliberate exception.
+    #
+    # `bounty-eligible` means adjudicated and payable -- never touch it again.
+    # `gate-processed` alone means adjudicated cleanly -- likewise.
+    #
+    # `needs-human` means the OPPOSITE: the gate could not decide. Treating it
+    # as final made it a permanent dead end, so every later fix to this script
+    # stranded its own past victims. That is exactly what happened: claims
+    # gated before the 2026-06-11 pr_ref fix were told "couldn't read reviews
+    # for Scottcjn/Rustchain#<n>" because full PR URLs were not yet preferred,
+    # and they were never revisited after the fix landed. Seven such claims had
+    # to be settled by hand on 2026-08-07; at least three resolve cleanly
+    # against current code.
+    #
+    # With RETRY_NEEDS_HUMAN set, an unresolved claim is re-adjudicated. To
+    # avoid re-notifying people when nothing has changed, a retry that still
+    # cannot resolve exits SILENTLY (see `quiet` below) -- it comments only
+    # when the verdict actually improves.
+    retry = os.environ.get("RETRY_NEEDS_HUMAN", "") == "1"
+    quiet = False
+    if "bounty-eligible" in labels:
+        return
+    if "needs-human" in labels:
+        if not retry:
+            return
+        quiet = True            # only speak up if the outcome improves
+    elif "gate-processed" in labels:
+        return
     title=iss.get("title",""); body=iss.get("body") or ""; author=iss["user"]["login"]
     if not is_review_claim(title): return  # not our claim type; leave for other workflows
     add_label(NUM,"gate-processed")
     claim_repo, pr = pr_ref(title, body)
     if not pr:
-        add_label(NUM,"needs-human"); comment(NUM,"🤖 Gate: couldn't find a single PR reference. Per **Bounty #73**, file one claim per PR with `PR #<number>` (a full PR URL is best). Flagged for human review."); return
+        _unresolved("🤖 Gate: couldn't find a single PR reference. Per **Bounty #73**, file one claim per PR with `PR #<number>` (a full PR URL is best). Flagged for human review.", quiet); return
     # Cross-repo claims: trust an explicit PR URL if it points at one of
     # the maintainer's repos; anything else goes to a human.
     target = TARGET
@@ -247,12 +319,25 @@ def main():
         if claim_repo.lower().startswith(TARGET.split("/")[0].lower() + "/"):
             target = claim_repo
         else:
-            add_label(NUM,"needs-human"); comment(NUM,f"🤖 Gate: claim references a PR outside the maintainer's repos ({claim_repo}#{pr}). Flagged for human review."); return
+            _unresolved(f"🤖 Gate: claim references a PR outside the maintainer's repos ({claim_repo}#{pr}). Flagged for human review.", quiet); return
     if native_wallet(body) is False:
         close(NUM,"🤖 Gate: payout must be a **native RTC wallet** (`RTC…`) — RTC has no off-ramp, no Solana/ETH bridge. Reopen with a native wallet."); return
     reviews=api(f"/repos/{target}/pulls/{pr}/reviews")
+    if reviews is None and not claim_repo:
+        # The default target was an assumption, not a statement by the
+        # claimant. Before giving up, honour a repo named in prose
+        # ("... for rustchain-bounties PR #13434"). Only reached when the
+        # assumed lookup already failed, so this can rescue a claim but can
+        # never redirect one that was resolving correctly.
+        cand = prose_repo(title, body)
+        if cand and cand.lower() != target.split("/")[1].lower():
+            owner = TARGET.split("/")[0]
+            alt = f"{owner}/{cand}"
+            alt_reviews = api(f"/repos/{alt}/pulls/{pr}/reviews")
+            if alt_reviews is not None:
+                target, reviews = alt, alt_reviews
     if reviews is None:
-        add_label(NUM,"needs-human"); comment(NUM,f"🤖 Gate: couldn't read reviews for {target}#{pr} (private/deleted?). Flagged for human review."); return
+        _unresolved(f"🤖 Gate: couldn't read reviews for {target}#{pr} (private/deleted?). Flagged for human review.", quiet); return
     rv=[r for r in reviews if r.get("submitted_at")]
     rv.sort(key=lambda r:r["submitted_at"])
     inl = api(f"/repos/{target}/pulls/{pr}/comments?per_page=100") or []
