@@ -116,12 +116,33 @@ def _post(url, body):
         headers={"Content-Type":"application/json","X-Admin-Key":ADMIN})
     with urllib.request.urlopen(req,timeout=30,context=ctx) as r: return json.loads(r.read())
 def transfer(to,memo,idem):
+    """Return (ok, response_or_error).
+
+    FIX (#16390): the previous version returned True whenever `_post` did not
+    raise. A transport-level success carrying an application-level refusal
+    (HTTP 200 with `{"ok": false, ...}`, e.g. insufficient balance or a
+    rejected wallet) was therefore recorded as PAID — the claim got closed and
+    publicly confirmed with no RTC sent. Success now requires `ok` to be true
+    in the response body.
+
+    A server that answers and declines is NOT retried against the fallback
+    endpoint: it already processed the request, so re-posting risks a second
+    debit under a different URL.
+    """
     body=json.dumps({"from_miner":FROM,"to_miner":to,"amount_rtc":RATE,"memo":memo,"idempotency_key":idem}).encode()
     # node gunicorn is bound to 127.0.0.1:8099 (nginx-only) — reach it via the
     # nginx HTTPS endpoint (the working path); fall back to the internal port.
+    last="no_endpoint_attempted"
     for url in (f"https://{HOST}/wallet/transfer", f"http://{HOST}:{PORT}/wallet/transfer"):
-        try: return True,_post(url,body)
-        except Exception as e: last=str(e)[:160]
+        try:
+            resp=_post(url,body)
+        except Exception as e:
+            last=str(e)[:160]
+            continue
+        if not isinstance(resp,dict) or not resp.get("ok"):
+            # Server answered and refused. Do not try the other endpoint.
+            return False,f"server_declined:{str(resp)[:180]}"
+        return True,resp
     return False,last
 def _is_bot_login(login, user_obj):
     """Return True if the comment/author appears to be a bot.
@@ -218,7 +239,27 @@ def resolve_wallet(issue_body, comments, claimant_login=None):
     if claimant_login and _looks_like_handle(claimant_login) and not _is_bot_login(claimant_login, None):
         return claimant_login, "handle"
     return None, None
-issues=json.loads(gh(["issue","list","-R",REPO,"--state","open","--limit","400","--json","number,title,labels"]))
+def _list(extra):
+    try:
+        return json.loads(gh(["issue","list","-R",REPO,"--state","open",
+                              "--json","number,title,labels"]+extra) or "[]")
+    except json.JSONDecodeError:
+        return []
+
+# Candidate set = every gate-labelled claim UNION a recent-window sweep.
+#
+# The recent sweep alone (the previous behaviour, --limit 400) silently
+# excluded any claim outside the 400 newest open issues. With a backlog in
+# the thousands that meant a gate-verified claim could age past the window
+# and become unpayable forever, with no error anywhere — the claim just
+# stopped being considered. The label pass makes eligibility, not recency,
+# decide what gets paid; the recent pass still catches claims made eligible
+# by a maintainer "Verified eligible" comment rather than the label.
+issues=_list(["--label","bounty-eligible","--limit","1000"])
+_seen={i["number"] for i in issues}
+issues += [i for i in _list(["--limit","400"]) if i["number"] not in _seen]
+print(f"bounty-payout: {len(issues)} candidate issues "
+      f"({len(_seen)} label-eligible, {len(issues)-len(_seen)} from recent window)")
 paid=0; total=0.0
 for i in issues:
     if paid>=MAXRUN: print(f"::notice::MAX_PER_RUN={MAXRUN} reached — stopping; remaining eligible will pay next run."); break
@@ -241,7 +282,22 @@ for i in issues:
     ok,resp=transfer(wallet,f"Bounty #73 code-review — claim #{num} (source: {source})",f"bounty73-claim-{num}")
     if ok:
         paid+=1; total+=RATE
-        gh(["issue","comment",num,"-R",REPO,"--body",f"💸 **RTC-AutoPay-Confirmed** — {RATE:g} RTC sent to `{wallet}` (source: {source}, verified #73 review, founder_community). Thanks!"])
+        # Transfers are two-phase: the node returns phase="pending" with a 24h
+        # confirmation window, and the balance does not move until the pending
+        # confirmer runs. Say "queued", not "sent" — reporting an unconfirmed
+        # hold as a completed payment is the other half of #16390.
+        phase=resp.get("phase","") if isinstance(resp,dict) else ""
+        txh=resp.get("tx_hash","") if isinstance(resp,dict) else ""
+        tx=f" tx `{txh}`." if txh else ""
+        if phase=="pending":
+            hrs=resp.get("confirms_in_hours",24)
+            state=(f"**queued** — {RATE:g} RTC to `{wallet}`.{tx} Pending the standard "
+                   f"{hrs:g}h confirmation window; the balance moves when it clears.")
+        else:
+            state=f"**settled** — {RATE:g} RTC to `{wallet}`.{tx}"
+        gh(["issue","comment",num,"-R",REPO,"--body",
+            f"💸 **RTC-AutoPay-Confirmed** — payout {state} "
+            f"(source: {source}, verified #73 review, from `founder_community`). Thanks for the review!"])
         gh(["issue","close",num,"-R",REPO,"--reason","completed"])
     else: print(f"::warning::pay failed #{num}: {resp}")
     time.sleep(1.5)
