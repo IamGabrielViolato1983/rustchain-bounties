@@ -20,7 +20,24 @@ SAFETY:
   - MAX_PER_RUN aggregate cap (default 40) — hard stop per run, surfaced in log
 Env: GITHUB_TOKEN, RTC_ADMIN_KEY, RTC_VPS_HOST, GH_REPO, RATE_RTC(3), MAX_PER_RUN(40).
 """
-import os, re, json, time, subprocess, ssl, urllib.request, urllib.error
+import os, re, json, time, subprocess, ssl, urllib.request, urllib.error, importlib.util
+
+def _load_second_act():
+    """Load the payout second-act hook. Optional: absence must not break payouts."""
+    try:
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "second_act.py")
+        spec = importlib.util.spec_from_file_location("second_act", p)
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m
+    except Exception as e:
+        print(f"::warning::second_act hook unavailable ({e}); payouts continue without it")
+        class _Null:
+            @staticmethod
+            def build(*a, **k): return ""
+        return _Null()
+
+_second_act = _load_second_act()
 TOKEN=os.environ["GITHUB_TOKEN"]; ADMIN=os.environ["RTC_ADMIN_KEY"]
 HOST=os.environ.get("RTC_VPS_HOST","50.28.86.131"); REPO=os.environ.get("GH_REPO","Scottcjn/rustchain-bounties")
 RATE=float(os.environ.get("RATE_RTC","3")); MAXRUN=int(os.environ.get("MAX_PER_RUN","40"))
@@ -295,9 +312,19 @@ for i in issues:
                    f"{hrs:g}h confirmation window; the balance moves when it clears.")
         else:
             state=f"**settled** — {RATE:g} RTC to `{wallet}`.{tx}"
+        # Second-act hook: the payout notification is the one moment of
+        # guaranteed attention. Ending on "thanks" wastes it; ending on a named
+        # next task is the cheapest retention step available. Fail-open by
+        # construction -- build() returns "" rather than raising, so a broken
+        # hook can never block a payment.
+        try:
+            hook=_second_act.build(claimant or wallet, REPO, i["title"])
+        except Exception:
+            hook=""
         gh(["issue","comment",num,"-R",REPO,"--body",
             f"💸 **RTC-AutoPay-Confirmed** — payout {state} "
-            f"(source: {source}, verified #73 review, from `founder_community`). Thanks for the review!"])
+            f"(source: {source}, verified #73 review, from `founder_community`). "
+            f"Thanks for the review!{hook}"])
         gh(["issue","close",num,"-R",REPO,"--reason","completed"])
     else: print(f"::warning::pay failed #{num}: {resp}")
     time.sleep(1.5)
