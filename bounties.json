@@ -1,8 +1,20 @@
 {
-  "updated_at": "2026-08-07T16:05:50Z",
+  "updated_at": "2026-08-07T16:54:12Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1535,
+  "total": 1536,
   "bounties": [
+    {
+      "id": 16402,
+      "title": "Bounty claim: BoTTube docstring PR #1650 batch 18 (11 functions, 5.5 RTC)",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16402",
+      "state": "open",
+      "created_at": "2026-08-07T16:14:05Z",
+      "updated_at": "2026-08-07T16:14:05Z",
+      "comments": 0,
+      "author": "Vyacheslav-Tomashevskiy",
+      "labels": [],
+      "agents_welcome": false
+    },
     {
       "id": 16401,
       "title": "Bounty claim: BoTTube docstring PR #1649 batch 17 (12 functions, 6.0 RTC)",
