@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-07T12:36:43Z",
+  "updated_at": "2026-08-07T15:37:17Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 1679,
+  "total": 1557,
   "bounties": [
     {
       "id": 16401,
@@ -100,25 +100,13 @@
       "agents_welcome": false
     },
     {
-      "id": 16390,
-      "title": "bounty_payout.py: a declined transfer is recorded as paid — claim is closed and publicly confirmed with no RTC sent",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16390",
-      "state": "open",
-      "created_at": "2026-08-05T03:35:26Z",
-      "updated_at": "2026-08-06T15:57:24Z",
-      "comments": 1,
-      "author": "Scottcjn",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 16389,
       "title": "Bounty #302 claim: Blog post about RustChain Agent Economy (2nd post, 5 RTC)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16389",
       "state": "open",
       "created_at": "2026-08-03T12:00:14Z",
-      "updated_at": "2026-08-03T12:00:14Z",
-      "comments": 0,
+      "updated_at": "2026-08-07T14:49:25Z",
+      "comments": 1,
       "author": "leanworld7-netizen",
       "labels": [],
       "agents_welcome": false
@@ -333,8 +321,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16345",
       "state": "open",
       "created_at": "2026-07-31T07:21:38Z",
-      "updated_at": "2026-08-03T13:34:52Z",
-      "comments": 7,
+      "updated_at": "2026-08-07T14:49:23Z",
+      "comments": 8,
       "author": "leanworld7-netizen",
       "labels": [],
       "agents_welcome": false
@@ -674,20 +662,6 @@
       "agents_welcome": false
     },
     {
-      "id": 16227,
-      "title": "[Bounty #73 review claim] Scottcjn/Rustchain PR #8010 — Base wallet canonicalization (APPROVED)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16227",
-      "state": "open",
-      "created_at": "2026-07-18T09:48:49Z",
-      "updated_at": "2026-07-31T10:45:08Z",
-      "comments": 2,
-      "author": "jjb9707",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 16225,
       "title": "[Bounty Claim] README_ZH.md 语言链接修复 — PR #7526",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16225",
@@ -697,20 +671,6 @@
       "comments": 2,
       "author": "jjb9707",
       "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 16222,
-      "title": "[Bounty #73 review claim] Scottcjn/Rustchain PR #7996 — Beacon x402 schema/runtime export fix (APPROVED)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16222",
-      "state": "open",
-      "created_at": "2026-07-16T04:30:45Z",
-      "updated_at": "2026-07-31T11:48:31Z",
-      "comments": 3,
-      "author": "jjb9707",
-      "labels": [
-        "bounty-eligible"
-      ],
       "agents_welcome": false
     },
     {
@@ -4908,9 +4868,9 @@
       "id": 13285,
       "title": "RTC Bounty Claim - 80.35 RTC",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13285",
-      "state": "open",
+      "state": "closed",
       "created_at": "2026-06-07T16:49:11Z",
-      "updated_at": "2026-06-25T16:42:00Z",
+      "updated_at": "2026-08-07T15:37:22Z",
       "comments": 2,
       "author": "jaxint",
       "labels": [],
@@ -4920,214 +4880,10 @@
       "id": 13283,
       "title": "RTC Bounty Claim - 62 PR Reviews + 45 Emoji Reactions",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13283",
-      "state": "open",
+      "state": "closed",
       "created_at": "2026-06-07T15:30:17Z",
-      "updated_at": "2026-06-25T16:42:02Z",
+      "updated_at": "2026-08-07T15:37:20Z",
       "comments": 5,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13274,
-      "title": "RTC Bounty Claim - 90 PR Reviews + 45 Emoji Reactions",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13274",
-      "state": "open",
-      "created_at": "2026-06-07T14:16:42Z",
-      "updated_at": "2026-06-25T16:42:04Z",
-      "comments": 5,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13269,
-      "title": "RTC Bounty Claim - 49.95 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13269",
-      "state": "open",
-      "created_at": "2026-06-07T11:45:15Z",
-      "updated_at": "2026-06-25T16:42:08Z",
-      "comments": 4,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13265,
-      "title": "RTC Bounty Claim - 54.40 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13265",
-      "state": "open",
-      "created_at": "2026-06-07T10:33:04Z",
-      "updated_at": "2026-06-25T16:42:10Z",
-      "comments": 4,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13262,
-      "title": "RTC Bounty Claim - Bonus Rounds (Pages 4-5)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13262",
-      "state": "open",
-      "created_at": "2026-06-07T09:20:08Z",
-      "updated_at": "2026-06-25T16:42:13Z",
-      "comments": 4,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13261,
-      "title": "RTC Bounty Claim - Multi-Round Session (9 Rounds)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13261",
-      "state": "open",
-      "created_at": "2026-06-07T09:15:38Z",
-      "updated_at": "2026-06-25T16:42:15Z",
-      "comments": 3,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13254,
-      "title": "RTC Bounty Claim - 51.92 RTC (88 PRs + 24 emojis)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13254",
-      "state": "open",
-      "created_at": "2026-06-07T07:48:44Z",
-      "updated_at": "2026-06-25T16:42:17Z",
-      "comments": 3,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13246,
-      "title": "RTC Bounty Claim - Multi-Round PR Review + Emoji (2026-06-07)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13246",
-      "state": "open",
-      "created_at": "2026-06-07T05:22:29Z",
-      "updated_at": "2026-06-25T16:42:24Z",
-      "comments": 3,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13243,
-      "title": "RTC Bounty Claim - Multi-Round Session (88 PRs + 30 Emoji Reactions)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13243",
-      "state": "open",
-      "created_at": "2026-06-07T04:08:23Z",
-      "updated_at": "2026-06-25T16:42:26Z",
-      "comments": 2,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13242,
-      "title": "RTC Bounty Claim - 49.95 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13242",
-      "state": "open",
-      "created_at": "2026-06-07T02:57:52Z",
-      "updated_at": "2026-06-25T16:42:28Z",
-      "comments": 2,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13240,
-      "title": "RTC Bounty Claim - 2026-06-07 01:47 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13240",
-      "state": "open",
-      "created_at": "2026-06-07T01:47:36Z",
-      "updated_at": "2026-06-25T16:42:29Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13237,
-      "title": "RTC Bounty Claim - 2026-06-07 00:37 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13237",
-      "state": "open",
-      "created_at": "2026-06-07T00:37:51Z",
-      "updated_at": "2026-06-25T16:42:31Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13236,
-      "title": "RTC Bounty Claim - 88 PR Reviews + 30 Emoji Reactions",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13236",
-      "state": "open",
-      "created_at": "2026-06-06T23:24:00Z",
-      "updated_at": "2026-06-25T16:42:34Z",
-      "comments": 2,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13233,
-      "title": "RTC Bounty Claim",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13233",
-      "state": "open",
-      "created_at": "2026-06-06T21:07:28Z",
-      "updated_at": "2026-06-25T16:42:35Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13232,
-      "title": "RTC Bounty Claim - 2026-06-06 19:54 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13232",
-      "state": "open",
-      "created_at": "2026-06-06T19:54:09Z",
-      "updated_at": "2026-06-25T16:42:38Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13230,
-      "title": "RTC Bounty Claim",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13230",
-      "state": "open",
-      "created_at": "2026-06-06T18:41:28Z",
-      "updated_at": "2026-06-25T16:42:41Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13229,
-      "title": "RTC Bounty Claim - 2026-06-07 Session",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13229",
-      "state": "open",
-      "created_at": "2026-06-06T17:29:32Z",
-      "updated_at": "2026-06-25T16:42:43Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13227,
-      "title": "RTC Bounty Claim - 47.40 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13227",
-      "state": "open",
-      "created_at": "2026-06-06T16:16:57Z",
-      "updated_at": "2026-06-25T16:42:45Z",
-      "comments": 1,
       "author": "jaxint",
       "labels": [],
       "agents_welcome": false
@@ -5161,54 +4917,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13211,
-      "title": "RTC Bounty Claim - 2026-06-06 09:08 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13211",
-      "state": "open",
-      "created_at": "2026-06-06T09:08:22Z",
-      "updated_at": "2026-06-25T16:42:47Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13209,
-      "title": "RTC Bounty Claim - 17.97 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13209",
-      "state": "open",
-      "created_at": "2026-06-06T07:59:40Z",
-      "updated_at": "2026-06-25T16:42:49Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13208,
-      "title": "RTC Bounty Claim - 32.40 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13208",
-      "state": "open",
-      "created_at": "2026-06-06T07:55:28Z",
-      "updated_at": "2026-06-25T16:42:52Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13205,
-      "title": "RTC Bounty Claim - 2026-06-06 04:32 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13205",
-      "state": "open",
-      "created_at": "2026-06-06T04:32:40Z",
-      "updated_at": "2026-06-25T16:42:56Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13200,
       "title": "[CLAIM] Code review bounty #73 for rustchain-bounties PR #13084",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13200",
@@ -5221,18 +4929,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13199,
-      "title": "RTC Bounty Claim - Multi-Round Session (45 PRs + 36 Emoji)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13199",
-      "state": "open",
-      "created_at": "2026-06-06T02:11:27Z",
-      "updated_at": "2026-06-25T16:42:59Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13198,
       "title": "[CLAIM] Code review bounty #73 for rustchain-bounties PR #13197",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13198",
@@ -5241,54 +4937,6 @@
       "updated_at": "2026-07-07T06:04:44Z",
       "comments": 3,
       "author": "catcherintheroad-hub",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13196,
-      "title": "RTC Bounty Claim - PR Reviews + Emoji Reactions (45 PRs + 36 reactions)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13196",
-      "state": "open",
-      "created_at": "2026-06-06T01:01:45Z",
-      "updated_at": "2026-06-25T16:43:01Z",
-      "comments": 2,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13195,
-      "title": "[CLAIM] RTC Bounty - 34.38 RTC (45 PRs + 36 emoji)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13195",
-      "state": "open",
-      "created_at": "2026-06-05T23:51:11Z",
-      "updated_at": "2026-06-25T16:43:03Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13190,
-      "title": "RTC Bounty Claim - 2026-06-06 05:21 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13190",
-      "state": "open",
-      "created_at": "2026-06-05T21:31:41Z",
-      "updated_at": "2026-06-25T16:43:07Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13189,
-      "title": "RTC Bounty Claim",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13189",
-      "state": "open",
-      "created_at": "2026-06-05T20:20:05Z",
-      "updated_at": "2026-06-25T16:43:09Z",
-      "comments": 1,
-      "author": "jaxint",
       "labels": [],
       "agents_welcome": false
     },
@@ -5329,30 +4977,6 @@
       "agents_welcome": false
     },
     {
-      "id": 13124,
-      "title": "RTC Bounty Claim - 33.39 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13124",
-      "state": "open",
-      "created_at": "2026-06-05T02:12:22Z",
-      "updated_at": "2026-06-25T16:43:12Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13118,
-      "title": "RTC Bounty Claim - 33.39 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13118",
-      "state": "open",
-      "created_at": "2026-06-05T01:05:20Z",
-      "updated_at": "2026-06-25T16:43:13Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 13114,
       "title": "[CLAIM] Code review bounty #73 for rustchain-bounties PR #13113",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13114",
@@ -5361,162 +4985,6 @@
       "updated_at": "2026-07-06T06:25:21Z",
       "comments": 3,
       "author": "exal-gh-33",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13107,
-      "title": "RTC Bounty Claim - 2026-06-04 20:46 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13107",
-      "state": "open",
-      "created_at": "2026-06-04T20:46:14Z",
-      "updated_at": "2026-06-25T16:43:15Z",
-      "comments": 1,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13096,
-      "title": "RTC Bounty Claim - 45.03 RTC (63 PRs + 41 emoji)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13096",
-      "state": "open",
-      "created_at": "2026-06-04T09:26:33Z",
-      "updated_at": "2026-06-25T16:43:19Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13090,
-      "title": "RTC Bounty Claim - 2026-06-04 16:16 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13090",
-      "state": "open",
-      "created_at": "2026-06-04T08:16:18Z",
-      "updated_at": "2026-06-25T16:43:21Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13061,
-      "title": "RTC Bounty Claim - 2026-06-04 Session (Rounds 6-7)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13061",
-      "state": "open",
-      "created_at": "2026-06-04T01:13:55Z",
-      "updated_at": "2026-06-25T16:43:31Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13060,
-      "title": "RTC Bounty Claim - 2026-06-04 Session",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13060",
-      "state": "open",
-      "created_at": "2026-06-04T01:11:21Z",
-      "updated_at": "2026-06-25T16:43:33Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13056,
-      "title": "RTC Bounty Claim - 13.62 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13056",
-      "state": "open",
-      "created_at": "2026-06-04T00:02:54Z",
-      "updated_at": "2026-06-25T16:43:35Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13055,
-      "title": "RTC Bounty Claim - 13.28 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13055",
-      "state": "open",
-      "created_at": "2026-06-04T00:00:32Z",
-      "updated_at": "2026-06-25T16:43:37Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13054,
-      "title": "RTC Bounty Claim - 31.57 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13054",
-      "state": "open",
-      "created_at": "2026-06-03T23:57:44Z",
-      "updated_at": "2026-06-25T16:43:38Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13053,
-      "title": "RTC Bounty Claim - Multi-Round Session",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13053",
-      "state": "open",
-      "created_at": "2026-06-03T22:50:46Z",
-      "updated_at": "2026-06-25T16:43:40Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13051,
-      "title": "RTC Bounty Claim - 48.48 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13051",
-      "state": "open",
-      "created_at": "2026-06-03T21:43:47Z",
-      "updated_at": "2026-06-25T16:43:43Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13048,
-      "title": "RTC Bounty Claim - 2026-06-03 20:36 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13048",
-      "state": "open",
-      "created_at": "2026-06-03T20:36:30Z",
-      "updated_at": "2026-06-25T16:43:45Z",
-      "comments": 0,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13047,
-      "title": "[CLAIM] Code Review Bounty - 2026-06-03 19:26 UTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13047",
-      "state": "open",
-      "created_at": "2026-06-03T19:26:02Z",
-      "updated_at": "2026-06-25T16:43:47Z",
-      "comments": 2,
-      "author": "jaxint",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 13037,
-      "title": "RTC Bounty Claim - 27 PRs + 36 Emoji Reactions",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/13037",
-      "state": "open",
-      "created_at": "2026-06-03T18:12:38Z",
-      "updated_at": "2026-06-25T16:43:49Z",
-      "comments": 1,
-      "author": "jaxint",
       "labels": [],
       "agents_welcome": false
     },
@@ -7473,18 +6941,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11464,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5907 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11464",
-      "state": "open",
-      "created_at": "2026-05-20T11:38:04Z",
-      "updated_at": "2026-05-20T11:38:04Z",
-      "comments": 0,
-      "author": "GoodMorC",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11463,
       "title": "Code Review Bounty #73 claim - RustChain PR #5907",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11463",
@@ -7701,18 +7157,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11350,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5841",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11350",
-      "state": "open",
-      "created_at": "2026-05-20T08:36:58Z",
-      "updated_at": "2026-05-20T08:36:58Z",
-      "comments": 0,
-      "author": "IOROHKI",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11326,
       "title": "[Bounty Claim] Code review for RustChain PR #5830",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11326",
@@ -7905,18 +7349,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11210,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5787 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11210",
-      "state": "open",
-      "created_at": "2026-05-20T05:21:41Z",
-      "updated_at": "2026-06-25T17:00:53Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11209,
       "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5795",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11209",
@@ -7925,18 +7357,6 @@
       "updated_at": "2026-06-25T16:56:28Z",
       "comments": 1,
       "author": "william08190",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11207,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5776 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11207",
-      "state": "open",
-      "created_at": "2026-05-20T05:16:28Z",
-      "updated_at": "2026-06-25T17:00:55Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
       "labels": [],
       "agents_welcome": false
     },
@@ -8025,18 +7445,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11197,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5793 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11197",
-      "state": "open",
-      "created_at": "2026-05-20T05:01:50Z",
-      "updated_at": "2026-06-25T17:01:03Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11196,
       "title": "[Bounty Claim] Code Review - RustChain PR #5793 (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11196",
@@ -8049,78 +7457,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11195,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5791 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11195",
-      "state": "open",
-      "created_at": "2026-05-20T04:59:58Z",
-      "updated_at": "2026-06-25T17:03:05Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11194,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5790 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11194",
-      "state": "open",
-      "created_at": "2026-05-20T04:58:02Z",
-      "updated_at": "2026-06-25T17:01:05Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11193,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5790 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11193",
-      "state": "open",
-      "created_at": "2026-05-20T04:57:49Z",
-      "updated_at": "2026-06-25T17:03:07Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11192,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5792 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11192",
-      "state": "open",
-      "created_at": "2026-05-20T04:56:38Z",
-      "updated_at": "2026-06-25T17:03:09Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11191,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5792 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11191",
-      "state": "open",
-      "created_at": "2026-05-20T04:55:58Z",
-      "updated_at": "2026-06-25T17:01:07Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11190,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5791 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11190",
-      "state": "open",
-      "created_at": "2026-05-20T04:51:07Z",
-      "updated_at": "2026-06-25T17:01:08Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11189,
       "title": "[Bounty Claim] Code review for RustChain PR #5787",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11189",
@@ -8129,18 +7465,6 @@
       "updated_at": "2026-06-25T16:30:50Z",
       "comments": 0,
       "author": "JeremyZeng77",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11188,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5786 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11188",
-      "state": "open",
-      "created_at": "2026-05-20T04:48:55Z",
-      "updated_at": "2026-06-25T17:01:11Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
       "labels": [],
       "agents_welcome": false
     },
@@ -8181,18 +7505,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11184,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5785 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11184",
-      "state": "open",
-      "created_at": "2026-05-20T04:29:40Z",
-      "updated_at": "2026-06-25T17:01:13Z",
-      "comments": 0,
-      "author": "techoisonocreate-crypto",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11183,
       "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5785",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11183",
@@ -8201,30 +7513,6 @@
       "updated_at": "2026-06-25T16:56:37Z",
       "comments": 0,
       "author": "william08190",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11181,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5772 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11181",
-      "state": "open",
-      "created_at": "2026-05-20T04:17:58Z",
-      "updated_at": "2026-06-25T17:03:12Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11180,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5774 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11180",
-      "state": "open",
-      "created_at": "2026-05-20T04:15:49Z",
-      "updated_at": "2026-06-25T17:03:13Z",
-      "comments": 0,
-      "author": "bitdamii",
       "labels": [],
       "agents_welcome": false
     },
@@ -8241,54 +7529,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11178,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5776 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11178",
-      "state": "open",
-      "created_at": "2026-05-20T04:14:09Z",
-      "updated_at": "2026-06-25T17:03:16Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11176,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5783 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11176",
-      "state": "open",
-      "created_at": "2026-05-20T04:11:13Z",
-      "updated_at": "2026-06-25T17:03:18Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11175,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5765",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11175",
-      "state": "open",
-      "created_at": "2026-05-20T04:07:21Z",
-      "updated_at": "2026-05-20T04:07:21Z",
-      "comments": 0,
-      "author": "IOROHKI",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11173,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5767",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11173",
-      "state": "open",
-      "created_at": "2026-05-20T04:03:58Z",
-      "updated_at": "2026-05-20T04:03:58Z",
-      "comments": 0,
-      "author": "IOROHKI",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11172,
       "title": "[CLAIM] Code Review Bounty #73 - Rustchain PR #5782",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11172",
@@ -8297,30 +7537,6 @@
       "updated_at": "2026-06-25T16:56:39Z",
       "comments": 0,
       "author": "william08190",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11171,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5726",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11171",
-      "state": "open",
-      "created_at": "2026-05-20T04:01:20Z",
-      "updated_at": "2026-05-20T04:01:20Z",
-      "comments": 0,
-      "author": "IOROHKI",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11170,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5782",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11170",
-      "state": "open",
-      "created_at": "2026-05-20T03:58:03Z",
-      "updated_at": "2026-05-20T03:58:03Z",
-      "comments": 0,
-      "author": "IOROHKI",
       "labels": [],
       "agents_welcome": false
     },
@@ -8673,30 +7889,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11135,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5781 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11135",
-      "state": "open",
-      "created_at": "2026-05-20T03:25:00Z",
-      "updated_at": "2026-06-25T17:03:22Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11134,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5781",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11134",
-      "state": "open",
-      "created_at": "2026-05-20T03:23:32Z",
-      "updated_at": "2026-05-20T03:23:32Z",
-      "comments": 0,
-      "author": "IOROHKI",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11133,
       "title": "[CLAIM] Code Review Bounty #73 - Rustchain PR #5765",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11133",
@@ -8877,54 +8069,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11118,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5772 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11118",
-      "state": "open",
-      "created_at": "2026-05-20T03:14:03Z",
-      "updated_at": "2026-05-20T03:14:03Z",
-      "comments": 0,
-      "author": "GoodMorC",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11117,
-      "title": "[CLAIM] Code Review Bounty #73 - RustChain PR #5746 fee coverage",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11117",
-      "state": "open",
-      "created_at": "2026-05-20T03:11:13Z",
-      "updated_at": "2026-05-20T03:11:13Z",
-      "comments": 0,
-      "author": "metaspartan",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11116,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5780 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11116",
-      "state": "open",
-      "created_at": "2026-05-20T03:05:39Z",
-      "updated_at": "2026-06-25T17:03:24Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11115,
-      "title": "[Bounty Claim] Code Review - RustChain PR #5778 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11115",
-      "state": "open",
-      "created_at": "2026-05-20T02:58:32Z",
-      "updated_at": "2026-06-25T17:03:26Z",
-      "comments": 0,
-      "author": "bitdamii",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11112,
       "title": "[Bounty Claim] Code Review - RustChain PR #5770 (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11112",
@@ -8997,18 +8141,6 @@
       "agents_welcome": false
     },
     {
-      "id": 11101,
-      "title": "[CLAIM] Code Review Bounty #73 - beacon-skill PR reviews (cerredz)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11101",
-      "state": "open",
-      "created_at": "2026-05-20T01:44:26Z",
-      "updated_at": "2026-05-20T01:44:26Z",
-      "comments": 0,
-      "author": "cerredz",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 11097,
       "title": "[Bounty Claim] Security review - RustChain PR #5750 epoch commit quorum",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11097",
@@ -9029,66 +8161,6 @@
       "updated_at": "2026-06-25T16:49:40Z",
       "comments": 0,
       "author": "surim0n",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11093,
-      "title": "[Bounty Claim] PR Review - RustChain PRs #5714, #5752, #5746, #5753 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11093",
-      "state": "open",
-      "created_at": "2026-05-20T00:08:24Z",
-      "updated_at": "2026-05-20T00:08:24Z",
-      "comments": 0,
-      "author": "victortran0904",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11091,
-      "title": "[Bounty Claim] PR Review - rustchain-bounties PRs #11036 and #11035 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11091",
-      "state": "open",
-      "created_at": "2026-05-20T00:00:23Z",
-      "updated_at": "2026-05-20T00:12:35Z",
-      "comments": 0,
-      "author": "victortran0904",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11090,
-      "title": "[Bounty Claim] Code Review - PR #5753 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11090",
-      "state": "open",
-      "created_at": "2026-05-19T23:59:50Z",
-      "updated_at": "2026-05-19T23:59:50Z",
-      "comments": 0,
-      "author": "kevinyan911",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11089,
-      "title": "[Bounty Claim] Code Review - PR #5752 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11089",
-      "state": "open",
-      "created_at": "2026-05-19T23:59:47Z",
-      "updated_at": "2026-05-19T23:59:47Z",
-      "comments": 0,
-      "author": "kevinyan911",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 11088,
-      "title": "[Bounty Claim] Code Review - PR #5746 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/11088",
-      "state": "open",
-      "created_at": "2026-05-19T23:59:44Z",
-      "updated_at": "2026-05-19T23:59:44Z",
-      "comments": 0,
-      "author": "kevinyan911",
       "labels": [],
       "agents_welcome": false
     },
@@ -9945,30 +9017,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10925,
-      "title": "[Bounty Claim] PR Review - Rustchain PR #5680",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10925",
-      "state": "open",
-      "created_at": "2026-05-18T22:17:27Z",
-      "updated_at": "2026-05-18T22:17:27Z",
-      "comments": 0,
-      "author": "ddfc1991",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10920,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5352 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10920",
-      "state": "open",
-      "created_at": "2026-05-18T20:29:21Z",
-      "updated_at": "2026-05-18T20:29:21Z",
-      "comments": 0,
-      "author": "osmaneb23",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10876,
       "title": "Bounty #73 claim: BoTTube PR #997 requested-changes review",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10876",
@@ -10221,18 +9269,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10852,
-      "title": "[Bounty Claim] Code Reviews - RustChain PR #5607 and #5629 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10852",
-      "state": "open",
-      "created_at": "2026-05-18T03:08:14Z",
-      "updated_at": "2026-05-18T03:17:35Z",
-      "comments": 0,
-      "author": "gshaowei6",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10849,
       "title": "[Bounty Claim] PR Review - RustChain PR #5634 Linux miner hash pin (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10849",
@@ -10289,18 +9325,6 @@
       "updated_at": "2026-06-25T16:43:54Z",
       "comments": 1,
       "author": "iamdinhthuan",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10841,
-      "title": "[Bounty Claim] PR Review - Rustchain PR #5626",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10841",
-      "state": "open",
-      "created_at": "2026-05-18T01:42:47Z",
-      "updated_at": "2026-05-18T01:42:47Z",
-      "comments": 0,
-      "author": "ddfc1991",
       "labels": [],
       "agents_welcome": false
     },
@@ -11361,18 +10385,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10659,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5580 SDK public defaults (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10659",
-      "state": "open",
-      "created_at": "2026-05-17T16:53:56Z",
-      "updated_at": "2026-05-17T16:53:56Z",
-      "comments": 0,
-      "author": "kongwen686",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10657,
       "title": "[Bounty Claim] SDK public default node URL fix (PR #5580)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10657",
@@ -11849,18 +10861,6 @@
       "updated_at": "2026-06-25T16:51:13Z",
       "comments": 0,
       "author": "kekehanshujun",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10581,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5547 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10581",
-      "state": "open",
-      "created_at": "2026-05-17T14:50:38Z",
-      "updated_at": "2026-05-17T14:50:38Z",
-      "comments": 0,
-      "author": "kongwen686",
       "labels": [],
       "agents_welcome": false
     },
@@ -12765,25 +11765,13 @@
       "agents_welcome": false
     },
     {
-      "id": 10416,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5538 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10416",
-      "state": "open",
-      "created_at": "2026-05-17T04:41:35Z",
-      "updated_at": "2026-05-17T04:41:35Z",
-      "comments": 0,
-      "author": "2balmprune",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10407,
       "title": "[Bounty Claim] PR Review - RustChain PR #5533 (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10407",
       "state": "open",
       "created_at": "2026-05-17T04:11:17Z",
-      "updated_at": "2026-05-17T04:11:17Z",
-      "comments": 0,
+      "updated_at": "2026-08-07T15:13:10Z",
+      "comments": 1,
       "author": "2balmprune",
       "labels": [],
       "agents_welcome": false
@@ -12818,8 +11806,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10393",
       "state": "open",
       "created_at": "2026-05-17T03:41:08Z",
-      "updated_at": "2026-05-17T03:41:08Z",
-      "comments": 0,
+      "updated_at": "2026-08-07T15:13:13Z",
+      "comments": 1,
       "author": "2balmprune",
       "labels": [],
       "agents_welcome": false
@@ -12854,8 +11842,8 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10384",
       "state": "open",
       "created_at": "2026-05-17T03:13:02Z",
-      "updated_at": "2026-05-17T03:13:02Z",
-      "comments": 0,
+      "updated_at": "2026-08-07T15:07:12Z",
+      "comments": 1,
       "author": "2balmprune",
       "labels": [],
       "agents_welcome": false
@@ -12965,18 +11953,6 @@
       "updated_at": "2026-06-25T16:52:15Z",
       "comments": 0,
       "author": "kekehanshujun",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10351,
-      "title": "[Bounty Claim] Security review - RustChain PR #5522 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10351",
-      "state": "open",
-      "created_at": "2026-05-17T02:14:50Z",
-      "updated_at": "2026-05-17T02:14:50Z",
-      "comments": 0,
-      "author": "RYB-404",
       "labels": [],
       "agents_welcome": false
     },
@@ -13581,18 +12557,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10124,
-      "title": "[Bounty Claim] PR Review - BoTTube PR #1121 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10124",
-      "state": "open",
-      "created_at": "2026-05-16T19:03:06Z",
-      "updated_at": "2026-05-16T19:03:06Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10123,
       "title": "Bounty claim: code review for RustChain PR #5477",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10123",
@@ -13613,18 +12577,6 @@
       "updated_at": "2026-06-25T16:53:48Z",
       "comments": 0,
       "author": "kekehanshujun",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10113,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5465 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10113",
-      "state": "open",
-      "created_at": "2026-05-16T18:45:25Z",
-      "updated_at": "2026-05-16T18:45:25Z",
-      "comments": 0,
-      "author": "galanime",
       "labels": [],
       "agents_welcome": false
     },
@@ -13677,18 +12629,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10106,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5469 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10106",
-      "state": "open",
-      "created_at": "2026-05-16T18:25:10Z",
-      "updated_at": "2026-05-16T18:25:10Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10105,
       "title": "Bounty claim: code review for RustChain PR #5468",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10105",
@@ -13709,30 +12649,6 @@
       "updated_at": "2026-06-25T16:54:00Z",
       "comments": 0,
       "author": "kekehanshujun",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10101,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5467 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10101",
-      "state": "open",
-      "created_at": "2026-05-16T18:19:16Z",
-      "updated_at": "2026-05-16T18:19:16Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10100,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5464 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10100",
-      "state": "open",
-      "created_at": "2026-05-16T18:08:45Z",
-      "updated_at": "2026-05-16T18:08:45Z",
-      "comments": 0,
-      "author": "galanime",
       "labels": [],
       "agents_welcome": false
     },
@@ -13881,18 +12797,6 @@
       "agents_welcome": false
     },
     {
-      "id": 10059,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5460 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10059",
-      "state": "open",
-      "created_at": "2026-05-16T17:08:41Z",
-      "updated_at": "2026-05-16T17:08:41Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 10058,
       "title": "Bounty claim: code review for RustChain PR #5459",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10058",
@@ -13901,78 +12805,6 @@
       "updated_at": "2026-06-25T16:54:25Z",
       "comments": 0,
       "author": "kekehanshujun",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10055,
-      "title": "[Bounty Claim] PR Review - PR #5458 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10055",
-      "state": "open",
-      "created_at": "2026-05-16T16:54:21Z",
-      "updated_at": "2026-05-16T16:54:21Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10053,
-      "title": "Bounty claim: code review for RustChain PR #5458",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10053",
-      "state": "open",
-      "created_at": "2026-05-16T16:38:48Z",
-      "updated_at": "2026-05-16T16:38:48Z",
-      "comments": 0,
-      "author": "ramimbo",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10051,
-      "title": "Bounty claim: code review for RustChain PR #5455",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10051",
-      "state": "open",
-      "created_at": "2026-05-16T16:31:46Z",
-      "updated_at": "2026-05-16T16:31:46Z",
-      "comments": 0,
-      "author": "ramimbo",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10045,
-      "title": "[Bounty Claim] PR Review - PR #5455 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10045",
-      "state": "open",
-      "created_at": "2026-05-16T16:11:24Z",
-      "updated_at": "2026-05-16T16:11:24Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10044,
-      "title": "[Bounty Claim] PR Review - PR #5453 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10044",
-      "state": "open",
-      "created_at": "2026-05-16T16:11:21Z",
-      "updated_at": "2026-05-16T16:11:21Z",
-      "comments": 0,
-      "author": "galanime",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 10043,
-      "title": "[Bounty Claim] PR Review - PR #5456 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/10043",
-      "state": "open",
-      "created_at": "2026-05-16T16:11:21Z",
-      "updated_at": "2026-05-16T16:11:21Z",
-      "comments": 0,
-      "author": "galanime",
       "labels": [],
       "agents_welcome": false
     },
@@ -14613,18 +13445,6 @@
       "agents_welcome": false
     },
     {
-      "id": 9958,
-      "title": "[Bounty Claim] PR Reviews - 8 PRs (Bounty #73) - 8npyvz5bd8-lang",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9958",
-      "state": "open",
-      "created_at": "2026-05-16T11:08:55Z",
-      "updated_at": "2026-05-16T11:08:55Z",
-      "comments": 0,
-      "author": "8npyvz5bd8-lang",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9956,
       "title": "[Bounty Claim] PR Reviews - Ecosystem Batch (Bounty #73) - HCIE2054",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9956",
@@ -15129,18 +13949,6 @@
       "agents_welcome": false
     },
     {
-      "id": 9898,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5381 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9898",
-      "state": "open",
-      "created_at": "2026-05-16T07:59:51Z",
-      "updated_at": "2026-05-16T07:59:51Z",
-      "comments": 0,
-      "author": "Asti1982",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9897,
       "title": "[Bounty Claim] PR Review - PR #4397 (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9897",
@@ -15161,18 +13969,6 @@
       "updated_at": "2026-06-25T17:02:29Z",
       "comments": 0,
       "author": "kongzi123",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9895,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5385 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9895",
-      "state": "open",
-      "created_at": "2026-05-16T07:58:34Z",
-      "updated_at": "2026-05-16T07:58:34Z",
-      "comments": 0,
-      "author": "Asti1982",
       "labels": [],
       "agents_welcome": false
     },
@@ -15225,78 +14021,6 @@
       "agents_welcome": false
     },
     {
-      "id": 9890,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5391 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9890",
-      "state": "open",
-      "created_at": "2026-05-16T07:53:44Z",
-      "updated_at": "2026-05-16T07:53:44Z",
-      "comments": 0,
-      "author": "Asti1982",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9889,
-      "title": "[Bounty Claim] PR Review - RustChain PR #5395 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9889",
-      "state": "open",
-      "created_at": "2026-05-16T07:50:44Z",
-      "updated_at": "2026-05-16T07:50:44Z",
-      "comments": 0,
-      "author": "Asti1982",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9888,
-      "title": "[Bounty Claim] PR Review - PR #5379 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9888",
-      "state": "open",
-      "created_at": "2026-05-16T07:40:54Z",
-      "updated_at": "2026-05-16T07:40:54Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9887,
-      "title": "[Bounty Claim] PR Review - PR #5377 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9887",
-      "state": "open",
-      "created_at": "2026-05-16T07:39:38Z",
-      "updated_at": "2026-05-16T07:39:38Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9886,
-      "title": "[Bounty Claim] PR Review - PR #5373 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9886",
-      "state": "open",
-      "created_at": "2026-05-16T07:38:13Z",
-      "updated_at": "2026-05-16T07:38:13Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9885,
-      "title": "[Bounty Claim] PR Review - PR #5371 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9885",
-      "state": "open",
-      "created_at": "2026-05-16T07:36:42Z",
-      "updated_at": "2026-05-16T07:36:42Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9884,
       "title": "[Bounty Claim] PR Review - PR #5390 (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9884",
@@ -15305,66 +14029,6 @@
       "updated_at": "2026-06-25T17:02:38Z",
       "comments": 0,
       "author": "kongzi123",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9883,
-      "title": "[Bounty Claim] PR Review - PR #5375 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9883",
-      "state": "open",
-      "created_at": "2026-05-16T07:24:56Z",
-      "updated_at": "2026-05-16T07:24:56Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9879,
-      "title": "[CLAIM] PR Review - RustChain PR #5388 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9879",
-      "state": "open",
-      "created_at": "2026-05-16T05:50:58Z",
-      "updated_at": "2026-05-16T05:50:58Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9876,
-      "title": "[CLAIM] PR Review - RustChain PR #5386 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9876",
-      "state": "open",
-      "created_at": "2026-05-16T05:33:01Z",
-      "updated_at": "2026-05-16T05:33:01Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9871,
-      "title": "[CLAIM] PR Review - RustChain PR #5365 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9871",
-      "state": "open",
-      "created_at": "2026-05-16T05:18:15Z",
-      "updated_at": "2026-05-16T05:18:15Z",
-      "comments": 0,
-      "author": "likx0525",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9870,
-      "title": "[CLAIM] PR Review - RustChain PR #5360 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9870",
-      "state": "open",
-      "created_at": "2026-05-16T04:50:46Z",
-      "updated_at": "2026-05-16T04:50:46Z",
-      "comments": 0,
-      "author": "likx0525",
       "labels": [],
       "agents_welcome": false
     },
@@ -15405,37 +14069,13 @@
       "agents_welcome": false
     },
     {
-      "id": 9848,
-      "title": "[Bounty Claim] PR Reviews - 3 PRs (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9848",
-      "state": "open",
-      "created_at": "2026-05-16T03:39:56Z",
-      "updated_at": "2026-05-16T03:41:35Z",
-      "comments": 0,
-      "author": "denerbarbosa",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9846,
       "title": "[Bounty Claim] PR Reviews - 3 PRs (Bounty #73)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9846",
       "state": "open",
       "created_at": "2026-05-16T03:35:48Z",
-      "updated_at": "2026-05-16T03:35:48Z",
-      "comments": 0,
-      "author": "denerbarbosa",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9841,
-      "title": "[Bounty Claim] PR Reviews - 2 PRs (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9841",
-      "state": "open",
-      "created_at": "2026-05-16T03:26:55Z",
-      "updated_at": "2026-05-16T03:26:55Z",
-      "comments": 0,
+      "updated_at": "2026-08-07T15:10:12Z",
+      "comments": 1,
       "author": "denerbarbosa",
       "labels": [],
       "agents_welcome": false
@@ -15513,18 +14153,6 @@
       "agents_welcome": false
     },
     {
-      "id": 9647,
-      "title": "Bounty Claim: Code Review - PR #5271, #5273, #5274 (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9647",
-      "state": "open",
-      "created_at": "2026-05-15T05:15:53Z",
-      "updated_at": "2026-05-15T05:15:53Z",
-      "comments": 0,
-      "author": "weilixiong",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9606,
       "title": "[Bounty Claim] Star 70 RustChain Repos (Bounty #2103)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9606",
@@ -15545,54 +14173,6 @@
       "updated_at": "2026-05-15T04:11:55Z",
       "comments": 0,
       "author": "qiuluoli",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9603,
-      "title": "Code review bounty claim: RustChain PRs #5283 and #5284",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9603",
-      "state": "open",
-      "created_at": "2026-05-15T03:55:08Z",
-      "updated_at": "2026-05-15T03:55:08Z",
-      "comments": 0,
-      "author": "HunterCML",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9600,
-      "title": "Code review bounty claim for #73 - HunterCML - Rustchain PRs #5282 and #5281",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9600",
-      "state": "open",
-      "created_at": "2026-05-15T03:42:56Z",
-      "updated_at": "2026-05-15T03:42:56Z",
-      "comments": 0,
-      "author": "HunterCML",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9598,
-      "title": "Code review bounty claim for #73 - HunterCML - Rustchain PR #5278",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9598",
-      "state": "open",
-      "created_at": "2026-05-15T03:27:53Z",
-      "updated_at": "2026-05-15T03:27:53Z",
-      "comments": 0,
-      "author": "HunterCML",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9596,
-      "title": "[CLAIM] Code Review Bounty #73 - 3 PR reviews",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9596",
-      "state": "open",
-      "created_at": "2026-05-15T02:54:46Z",
-      "updated_at": "2026-05-15T02:54:46Z",
-      "comments": 0,
-      "author": "asdf00915",
       "labels": [],
       "agents_welcome": false
     },
@@ -15628,18 +14208,6 @@
       "created_at": "2026-05-15T02:29:51Z",
       "updated_at": "2026-06-06T19:32:49Z",
       "comments": 1,
-      "author": "airdropp20208-star",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9592,
-      "title": "[Bounty Claim] README Badge + Bug Report + PR Review (Issues #2177 #2781 #2782)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9592",
-      "state": "open",
-      "created_at": "2026-05-15T02:29:44Z",
-      "updated_at": "2026-05-15T02:29:44Z",
-      "comments": 0,
       "author": "airdropp20208-star",
       "labels": [],
       "agents_welcome": false
@@ -16497,30 +15065,6 @@
       "agents_welcome": false
     },
     {
-      "id": 9433,
-      "title": "Review bounty #73 claim: RustChain PR #5176 Security & Logic Review",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9433",
-      "state": "open",
-      "created_at": "2026-05-14T14:26:09Z",
-      "updated_at": "2026-05-14T15:37:50Z",
-      "comments": 0,
-      "author": "Guzzzzzzzz",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9429,
-      "title": "Review bounty #73 claim: RustChain PR #5192 UTXO oversized output guard",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9429",
-      "state": "open",
-      "created_at": "2026-05-14T14:14:29Z",
-      "updated_at": "2026-05-14T15:37:17Z",
-      "comments": 0,
-      "author": "Guzzzzzzzz",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
       "id": 9428,
       "title": "Review bounty #73 claim: RustChain PR #5200 dust transfer regression",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9428",
@@ -16949,18 +15493,6 @@
       "updated_at": "2026-05-13T17:12:03Z",
       "comments": 0,
       "author": "508704820",
-      "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 9278,
-      "title": "[Bounty Claim] PR Reviews -- 2 PRs (Bounty #73)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/9278",
-      "state": "open",
-      "created_at": "2026-05-13T15:29:42Z",
-      "updated_at": "2026-05-13T15:29:42Z",
-      "comments": 0,
-      "author": "weilixiong",
       "labels": [],
       "agents_welcome": false
     },
@@ -18210,7 +16742,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2180",
       "state": "open",
       "created_at": "2026-03-17T02:05:49Z",
-      "updated_at": "2026-08-07T07:17:04Z",
+      "updated_at": "2026-08-07T13:04:16Z",
       "comments": 364,
       "author": "Scottcjn",
       "labels": [
@@ -18266,7 +16798,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2155",
       "state": "open",
       "created_at": "2026-03-16T18:12:44Z",
-      "updated_at": "2026-08-07T07:15:48Z",
+      "updated_at": "2026-08-07T13:03:25Z",
       "comments": 48,
       "author": "Scottcjn",
       "labels": [
