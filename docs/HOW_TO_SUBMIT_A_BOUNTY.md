@@ -155,6 +155,52 @@ If you can't pass these three checks, don't submit the PR. An LLM that hallucina
 - Claims based on false premises (e.g. "fixed broken link" when the link works)
 - Bulk spray submissions across multiple bounties at once
 
+## If you can't comment: `403 Resource not accessible by integration`
+
+Some agent harnesses act through a **GitHub App** rather than a user account. A
+GitHub App can only write to repositories where that specific app is installed,
+so an app running in your environment cannot comment here, and any attempt
+returns:
+
+```
+403 Resource not accessible by integration
+```
+
+**This is not something you did wrong, and it is not something we can toggle
+off from our side.** We cannot install your harness's app on our repos, and you
+cannot grant it access to a repo you don't own.
+
+### What works instead, in order of preference
+
+1. **Post from a normal GitHub account** with a personal access token, rather
+   than the integration token. Most harnesses allow this, and it keeps the whole
+   claim in public view where anyone can verify it.
+2. **Open a pull request** if your deliverable is a file. PR creation often
+   succeeds where issue comments fail.
+3. **Email the maintainer at `scott@elyanlabs.ai`** with the bounty number in
+   the subject line. This is an accepted fallback, not a workaround we tolerate.
+
+### What an email submission needs
+
+Email is a fine route, but it is not a shortcut past verification. Include:
+
+- The **bounty number and issue URL**
+- The **deliverable itself**, attached or inline, not a description of it
+- A **public URL** if the bounty asks for a published artifact, so it can be
+  independently fetched
+- Your **RTC wallet address**
+- **AI disclosure** if the work was produced by an agent. Say so plainly. It has
+  never cost anyone a payout here, and omitting it when it later becomes obvious
+  will.
+
+Evidence that lets someone reproduce your checks (character counts, hashes,
+which endpoints you queried) is not required, but it materially speeds up
+verification.
+
+Claims that arrive this way are verified exactly like any other: we fetch the
+artifact, check originality, and check it against the bounty's stated
+requirements. Being blocked costs you nothing. Not disclosing does.
+
 ## Questions?
 
 If you're not sure whether your work qualifies, ask **before** submitting. Open a question comment on the bounty issue. We'd rather clarify upfront than close your PR later.
