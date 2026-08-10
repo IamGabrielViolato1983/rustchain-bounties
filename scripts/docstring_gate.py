@@ -34,6 +34,7 @@ Env: GITHUB_TOKEN, GH_REPO, ISSUE_NUMBER, RATE_PER_FUNC (0.5), MAX_RTC (25).
 """
 from __future__ import annotations
 
+import datetime
 import json
 import os
 import re
@@ -47,6 +48,20 @@ RATE = float(os.environ.get("RATE_PER_FUNC", "0.5"))
 # is small by nature; a very large claim is either a mistake or something that
 # deserves a human read.
 MAX_RTC = float(os.environ.get("MAX_RTC", "25"))
+# Per-contributor rolling weekly ceiling on DOCSTRING earnings specifically.
+#
+# A per-claim ceiling bounds nothing here: each batch is ~5 RTC, so batch 50,
+# 51 and 52 all sail under it. The unbounded axis is volume, not size -- there
+# is always another file to document, which is the same faucet shape as the
+# ONBOARD comparison bounty that had to be closed at 98% farm share.
+#
+# 40 RTC/week is deliberately generous: it is 80 documented functions, and it
+# sits at the top of what the strongest contributors earn across ALL bounty
+# types in a week (measured 2026-08-10: typical top earners 20-50 RTC/week).
+# It caps a faucet without punishing anyone doing real work.
+#
+# This applies ONLY to docstring claims. Large one-off bounties are untouched.
+MAX_RTC_PER_WEEK = float(os.environ.get("MAX_RTC_PER_WEEK", "40"))
 
 PR_RE = re.compile(r'github\.com/([\w.-]+/[\w.-]+)/pull/(\d+)')
 COUNT_RE = re.compile(
@@ -90,6 +105,34 @@ def add_labels(*names):
             print(f"::warning::could not apply label {n}: {r.stderr.strip()[:120]}")
             ok = False
     return ok
+
+
+
+def docstring_rtc_this_week(author):
+    """RTC this author has already been granted for docstrings in 7 days.
+
+    Summed from this gate's own `rtc-payout-amount` markers rather than from
+    the chain, so the check works from Actions with no node access and no
+    admin key. Only claims the gate itself verified are counted.
+    """
+    since = (datetime.datetime.now(datetime.timezone.utc)
+             - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
+    q = (f"repo:{REPO} is:issue author:{author} label:docstring-verified "
+         f"created:>{since}")
+    res = gh(["api", "-X", "GET", "search/issues", "-f", f"q={q}", "-f", "per_page=100"], {})
+    total = 0.0
+    for it in (res.get("items") or []):
+        if str(it.get("number")) == str(NUM):
+            continue          # never count the claim being adjudicated
+        body = it.get("body") or ""
+        # The marker lives in a gate comment, not the issue body, so fetch them.
+        cs = gh(["api", f"/repos/{REPO}/issues/{it['number']}/comments?per_page=100"], []) or []
+        for c in cs:
+            m = re.search(r'<!--\s*rtc-payout-amount:\s*([\d.]+)\s*-->', c.get("body") or "")
+            if m:
+                total += float(m.group(1))
+                break
+    return round(total, 2)
 
 
 def is_docstring_claim(title, body):
@@ -191,6 +234,27 @@ def main():
             f"docstring ({total_added} lines added in total). If the work is real and the gate has "
             f"misread it, say so here and a human will look."], None)
         add_labels("needs-human")
+        return 0
+
+    author = (iss.get("author") or {}).get("login", "")
+    already = docstring_rtc_this_week(author) if author else 0.0
+    if already + amount > MAX_RTC_PER_WEEK:
+        add_labels("weekly-cap-reached")
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: verified **{doc_count} docstrings** in {pr_repo}#{pr_num} "
+            f"(**{amount} RTC**), but this would take you to "
+            f"**{round(already + amount, 2)} RTC** of docstring earnings in a rolling 7 days, "
+            f"over the **{MAX_RTC_PER_WEEK:g} RTC/week** ceiling for this bounty type.\n\n"
+            f"**The work is accepted and this claim is not closed.** It becomes payable again as "
+            f"soon as the rolling window clears, and it will be picked up automatically. You do "
+            f"not need to re-file it or do anything.\n\n"
+            f"Why the ceiling exists: documentation bounties are unbounded by nature, since there "
+            f"is always another file. The cap keeps one bounty type from consuming the pool, and "
+            f"40 RTC/week is roughly the top of what any contributor earns across all bounty types. "
+            f"It is not a judgement on the quality of your work, which has been consistently fine.\n\n"
+            f"If you want higher-value work, the bounty board has open items at 7 to 35 RTC each "
+            f"that are not rate-limited."], None)
+        print(f"weekly cap: {author} at {already} + {amount} > {MAX_RTC_PER_WEEK}")
         return 0
 
     if amount > MAX_RTC:

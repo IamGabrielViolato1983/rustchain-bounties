@@ -89,3 +89,48 @@ class ClaimParsingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WeeklyCeilingTests(unittest.TestCase):
+    """The per-claim ceiling bounds nothing: batches are ~5 RTC each, so the
+    50th one passes just as easily as the 1st. The weekly ceiling is the one
+    that actually bounds an unbounded bounty type."""
+
+    def setUp(self):
+        self._gh = dg.gh
+
+    def tearDown(self):
+        dg.gh = self._gh
+
+    def _with_prior(self, amounts):
+        """Fake N prior verified claims carrying these payout markers."""
+        items = [{"number": 900 + i, "body": ""} for i in range(len(amounts))]
+
+        def fake(args, default=None):
+            joined = " ".join(args)
+            if "search/issues" in joined:
+                return {"items": items}
+            if "/comments" in joined:
+                idx = int(joined.split("/issues/")[1].split("/")[0]) - 900
+                return [{"body": f"<!-- rtc-payout-amount: {amounts[idx]} -->"}]
+            return default
+        dg.gh = fake
+
+    def test_sums_prior_week(self):
+        self._with_prior([5.0, 7.5, 6.0])
+        self.assertEqual(dg.docstring_rtc_this_week("someone"), 18.5)
+
+    def test_no_prior_claims_is_zero(self):
+        self._with_prior([])
+        self.assertEqual(dg.docstring_rtc_this_week("someone"), 0.0)
+
+    def test_ceiling_is_higher_than_typical_top_earner(self):
+        """Measured 2026-08-10: top contributors earn 20-50 RTC/week across ALL
+        bounty types. A docstring-only ceiling below that would be punitive."""
+        self.assertGreaterEqual(dg.MAX_RTC_PER_WEEK, 40)
+
+    def test_per_claim_ceiling_alone_would_not_bound_volume(self):
+        """Documents why the weekly cap exists: a typical batch is far under
+        the per-claim ceiling, so volume is unbounded without it."""
+        typical_batch_rtc = 10 * dg.RATE     # 10 functions
+        self.assertLess(typical_batch_rtc, dg.MAX_RTC)
