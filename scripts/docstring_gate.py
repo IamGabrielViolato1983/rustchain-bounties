@@ -214,6 +214,7 @@ def main():
         f"- Files: `{', '.join(files[:4]) or 'n/a'}`\n"
         f"- Added lines opening a docstring: **{doc_count}** (of {total_added} added lines)\n"
         f"- Rate {RATE} RTC each → **{amount} RTC**{note}\n\n"
+        f"<!-- rtc-payout-amount: {amount} -->\n"
         f"Queued for payout. The balance moves after the standard confirmation window, not on this "
         f"comment."], None)
     print(f"verified {doc_count} docstrings -> {amount} RTC on {REPO}#{NUM}")

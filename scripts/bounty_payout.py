@@ -132,7 +132,7 @@ def _post(url, body):
     req=urllib.request.Request(url,data=body,method="POST",
         headers={"Content-Type":"application/json","X-Admin-Key":ADMIN})
     with urllib.request.urlopen(req,timeout=30,context=ctx) as r: return json.loads(r.read())
-def transfer(to,memo,idem):
+def transfer(to,memo,idem,amount=None):
     """Return (ok, response_or_error).
 
     FIX (#16390): the previous version returned True whenever `_post` did not
@@ -146,7 +146,7 @@ def transfer(to,memo,idem):
     endpoint: it already processed the request, so re-posting risks a second
     debit under a different URL.
     """
-    body=json.dumps({"from_miner":FROM,"to_miner":to,"amount_rtc":RATE,"memo":memo,"idempotency_key":idem}).encode()
+    body=json.dumps({"from_miner":FROM,"to_miner":to,"amount_rtc":(RATE if amount is None else amount),"memo":memo,"idempotency_key":idem}).encode()
     # node gunicorn is bound to 127.0.0.1:8099 (nginx-only) — reach it via the
     # nginx HTTPS endpoint (the working path); fall back to the internal port.
     last="no_endpoint_attempted"
@@ -281,7 +281,17 @@ paid=0; total=0.0
 for i in issues:
     if paid>=MAXRUN: print(f"::notice::MAX_PER_RUN={MAXRUN} reached — stopping; remaining eligible will pay next run."); break
     t=i["title"].lower()
-    if not (("review" in t) and ("pr" in t or "code" in t or "#73" in t)): continue
+    labels_pre={l["name"] for l in i.get("labels",[])}
+    # Review claims are title-matched; docstring claims are label-matched.
+    #
+    # This filter used to be review-only, so docstring claims adjudicated by
+    # the docstring gate were labelled `bounty-eligible` and then silently
+    # skipped here -- eligible, verified, and never paid. Any future gate that
+    # marks a claim payable must be represented here too, or it recreates the
+    # same dead end one layer down.
+    is_review = ("review" in t) and ("pr" in t or "code" in t or "#73" in t)
+    is_docstring = "docstring-verified" in labels_pre
+    if not (is_review or is_docstring): continue
     num=str(i["number"]); labels={l["name"] for l in i.get("labels",[])}
     d=json.loads(gh(["issue","view",num,"-R",REPO,"--json","body,comments,author"]))
     coms=d.get("comments",[])
@@ -296,9 +306,24 @@ for i in issues:
     if any("RTC-AutoPay-Confirmed" in (c.get("body") or "") for c in coms): continue
     wallet, source = resolve_wallet(d.get("body"), coms, claimant_login=claimant)
     if not wallet: continue
-    ok,resp=transfer(wallet,f"Bounty #73 code-review — claim #{num} (source: {source})",f"bounty73-claim-{num}")
+    # Review claims are a flat RATE. Docstring claims are worth whatever the
+    # gate verified (0.5 RTC per docstring), so paying the flat rate would pay
+    # 3 RTC for work verified at 4.5, 7.5 or 9. Read the gate's own figure.
+    amount, memo, idem = RATE, f"Bounty #73 code-review — claim #{num} (source: {source})", f"bounty73-claim-{num}"
+    if is_docstring:
+        m=None
+        for c in coms:
+            mm=re.search(r'<!--\s*rtc-payout-amount:\s*([\d.]+)\s*-->', c.get("body") or "")
+            if mm: m=mm
+        if not m:
+            print(f"::warning::#{num} is docstring-verified but carries no amount marker; skipping")
+            continue
+        amount=float(m.group(1))
+        memo=f"Docstring bounty — claim #{num}, gate-verified (source: {source})"
+        idem=f"docstring-claim-{num}"
+    ok,resp=transfer(wallet,memo,idem,amount)
     if ok:
-        paid+=1; total+=RATE
+        paid+=1; total+=amount
         # Transfers are two-phase: the node returns phase="pending" with a 24h
         # confirmation window, and the balance does not move until the pending
         # confirmer runs. Say "queued", not "sent" — reporting an unconfirmed
@@ -308,10 +333,10 @@ for i in issues:
         tx=f" tx `{txh}`." if txh else ""
         if phase=="pending":
             hrs=resp.get("confirms_in_hours",24)
-            state=(f"**queued** — {RATE:g} RTC to `{wallet}`.{tx} Pending the standard "
+            state=(f"**queued** — {amount:g} RTC to `{wallet}`.{tx} Pending the standard "
                    f"{hrs:g}h confirmation window; the balance moves when it clears.")
         else:
-            state=f"**settled** — {RATE:g} RTC to `{wallet}`.{tx}"
+            state=f"**settled** — {amount:g} RTC to `{wallet}`.{tx}"
         # Second-act hook: the payout notification is the one moment of
         # guaranteed attention. Ending on "thanks" wastes it; ending on a named
         # next task is the cheapest retention step available. Fail-open by
