@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-10T15:23:55Z",
+  "updated_at": "2026-08-10T16:18:50Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 872,
+  "total": 861,
   "bounties": [
     {
       "id": 16455,
@@ -813,7 +813,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16275",
       "state": "open",
       "created_at": "2026-07-20T15:41:39Z",
-      "updated_at": "2026-08-01T22:04:14Z",
+      "updated_at": "2026-08-10T16:18:20Z",
       "comments": 8,
       "author": "Scottcjn",
       "labels": [
@@ -5303,20 +5303,6 @@
       "agents_welcome": true
     },
     {
-      "id": 12354,
-      "title": "[Bounty Claim] Code Review Bounty #73 - RustChain PR #6339 feed limit zero bypass",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/12354",
-      "state": "open",
-      "created_at": "2026-05-26T00:30:22Z",
-      "updated_at": "2026-08-10T06:04:52Z",
-      "comments": 3,
-      "author": "JeremyZeng77",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 12028,
       "title": "[GRANT: 100 RTC/mo] Maintainer-Nominated Welcome Grant",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/12028",
@@ -7775,20 +7761,6 @@
       "agents_welcome": false
     },
     {
-      "id": 8848,
-      "title": "Claim: PR Review Bounty #73 — 114 RustChain PRs (2026-05-08)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8848",
-      "state": "open",
-      "created_at": "2026-05-08T02:22:04Z",
-      "updated_at": "2026-08-10T10:02:19Z",
-      "comments": 9,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 8840,
       "title": "Claim: Emoji Reactions — 15 Bounty Issues (Bounty #1611)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8840",
@@ -7825,20 +7797,6 @@
       "agents_welcome": false
     },
     {
-      "id": 8817,
-      "title": "Claim: PR Review Bounty #73 — 33 RustChain PRs (2026-05-07)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8817",
-      "state": "open",
-      "created_at": "2026-05-07T06:11:12Z",
-      "updated_at": "2026-08-10T10:02:13Z",
-      "comments": 1,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 8803,
       "title": "Emoji Reactions — 19 Issues (Bounty #1611) — OpenClaw 2026-05-07",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8803",
@@ -7851,20 +7809,6 @@
       "agents_welcome": false
     },
     {
-      "id": 8802,
-      "title": "PR Review Bounty #73 — 8 BossChaos Security PRs (2026-05-07)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8802",
-      "state": "open",
-      "created_at": "2026-05-07T04:10:20Z",
-      "updated_at": "2026-08-10T10:02:10Z",
-      "comments": 2,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 8773,
       "title": "Claim: Emoji Reactions — 7 Issues (Bounty #1611) — fengqiankun6-sudo 2026-05-07",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8773",
@@ -7874,34 +7818,6 @@
       "comments": 0,
       "author": "fengqiankun6-sudo",
       "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 8766,
-      "title": "PR Review Claim — 3 BossChaos PRs (Bounty #73, 2026-05-07 Late)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8766",
-      "state": "open",
-      "created_at": "2026-05-06T20:22:11Z",
-      "updated_at": "2026-08-10T10:02:07Z",
-      "comments": 2,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
-      "id": 8758,
-      "title": "Claim: PR Review Bounty #73 — 4 RustChain PRs (2026-05-07)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8758",
-      "state": "open",
-      "created_at": "2026-05-06T18:12:17Z",
-      "updated_at": "2026-08-10T10:02:00Z",
-      "comments": 2,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
       "agents_welcome": false
     },
     {
@@ -7929,20 +7845,6 @@
       "agents_welcome": false
     },
     {
-      "id": 8713,
-      "title": "PR Review Bounty #73 — 2 RustChain PRs (2026-05-06)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8713",
-      "state": "open",
-      "created_at": "2026-05-06T10:18:07Z",
-      "updated_at": "2026-08-10T10:01:55Z",
-      "comments": 3,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 8709,
       "title": "Emoji Reactions — 16 Issues (Bounty #1611, 2026-05-06)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8709",
@@ -7952,34 +7854,6 @@
       "comments": 1,
       "author": "fengqiankun6-sudo",
       "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 8708,
-      "title": "PR Review Claim — Bounty #73 — 13 PRs (2026-05-06 PM)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8708",
-      "state": "open",
-      "created_at": "2026-05-06T08:09:32Z",
-      "updated_at": "2026-08-10T10:01:51Z",
-      "comments": 2,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
-      "id": 8695,
-      "title": "PR Review Claim — Bounty #73 — 8 PRs (2026-05-06)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8695",
-      "state": "open",
-      "created_at": "2026-05-06T04:11:08Z",
-      "updated_at": "2026-08-10T10:01:48Z",
-      "comments": 2,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
       "agents_welcome": false
     },
     {
@@ -7995,20 +7869,6 @@
       "agents_welcome": false
     },
     {
-      "id": 8679,
-      "title": "Claim: PR Review Bounty #73 — 6 RustChain PRs (2026-05-06)",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8679",
-      "state": "open",
-      "created_at": "2026-05-06T00:11:51Z",
-      "updated_at": "2026-08-10T10:01:45Z",
-      "comments": 1,
-      "author": "fengqiankun6-sudo",
-      "labels": [
-        "bounty-eligible"
-      ],
-      "agents_welcome": false
-    },
-    {
       "id": 8349,
       "title": "[REQUEST] Bounty Hunter Startup Grant — Nanaimo Dev (wRTC Fuel)",
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/8349",
@@ -8018,20 +7878,6 @@
       "comments": 1,
       "author": "slendereater-sketch",
       "labels": [],
-      "agents_welcome": false
-    },
-    {
-      "id": 6488,
-      "title": "PR Review #2693 (Rustchain) - 2 RTC",
-      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/6488",
-      "state": "open",
-      "created_at": "2026-04-26T13:51:19Z",
-      "updated_at": "2026-08-10T10:01:35Z",
-      "comments": 4,
-      "author": "FlintLeng",
-      "labels": [
-        "bounty-eligible"
-      ],
       "agents_welcome": false
     },
     {
