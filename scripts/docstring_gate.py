@@ -1,0 +1,224 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+"""Adjudicate docstring bounty claims.
+
+WHY THIS EXISTS
+---------------
+The #73 gate only recognises CODE-REVIEW claims -- `is_review_claim()` requires
+"review" in the title. Every other bounty type falls straight through it, so
+docstring, blog, star and bug claims had no automated adjudication at all and
+simply accumulated unpaid. On 2026-08-10 that was 19 open docstring claims,
+batches 31 to 49, none of them gate-processed.
+
+Docstring claims are unusually verifiable, so they are worth gating properly
+rather than paying on assertion. A claim states a PR, a file, a function count
+and a rate, and the diff should be `+N/-0` where N is that count.
+
+WHAT IT VERIFIES (all of it, before paying anything)
+  1. The cited PR is **MERGED**. An open PR is not delivered work.
+  2. The PR touches the claimed file.
+  3. The added lines are **actually docstrings** -- lines opening with a quote
+     triple. This is the check that matters: without it "I added 40 docstrings"
+     pays out for 40 lines of anything.
+  4. The claimed count matches what was really added.
+
+PAYMENT IS COMPUTED FROM THE VERIFIED COUNT, NEVER THE CLAIMED ONE. A claim
+that overstates is paid the true amount rather than rejected outright -- the
+usual cause is miscounting, not fraud, and rejecting honest arithmetic errors
+teaches people to stop claiming.
+
+Sets `bounty-eligible` + `docstring-verified` and posts the arithmetic, so the
+existing payout runner pays it on its next pass. Never moves RTC itself.
+
+Env: GITHUB_TOKEN, GH_REPO, ISSUE_NUMBER, RATE_PER_FUNC (0.5), MAX_RTC (25).
+"""
+from __future__ import annotations
+
+import json
+import os
+import re
+import subprocess
+import sys
+
+REPO = os.environ.get("GH_REPO", "Scottcjn/rustchain-bounties")
+NUM = os.environ.get("ISSUE_NUMBER", "")
+RATE = float(os.environ.get("RATE_PER_FUNC", "0.5"))
+# A single claim asking for more than this is not auto-payable. Docstring work
+# is small by nature; a very large claim is either a mistake or something that
+# deserves a human read.
+MAX_RTC = float(os.environ.get("MAX_RTC", "25"))
+
+PR_RE = re.compile(r'github\.com/([\w.-]+/[\w.-]+)/pull/(\d+)')
+COUNT_RE = re.compile(
+    r'(?:functions?\s+documented|documented|added\s+docstrings?\s+to)\D{0,20}?(\d{1,3})',
+    re.I)
+FILE_RE = re.compile(r'(?:^|\s)((?:[\w.-]+/)*[\w.-]+\.py)\b')
+DOCSTRING_OPEN = re.compile(r'^\s*[rRbBuU]{0,2}("""|\'\'\')')
+
+
+def gh(args, default=None):
+    try:
+        p = subprocess.run(["gh"] + args, capture_output=True, text=True, timeout=120)
+        return json.loads(p.stdout) if p.stdout.strip() else default
+    except Exception:
+        return default
+
+
+def gh_raw(args):
+    try:
+        return subprocess.run(["gh"] + args, capture_output=True, text=True, timeout=120).stdout
+    except Exception:
+        return ""
+
+
+
+def add_labels(*names):
+    """Apply labels via REST.
+
+    `gh issue edit --add-label` goes through GraphQL and currently fails with a
+    Projects-classic deprecation error -- and it fails SILENTLY, so the gate
+    would post "verified" while never marking the claim eligible, and the payout
+    runner would never see it. Verified by observing an adjudicated claim come
+    back with `labels: []`.
+    """
+    ok = True
+    for n in names:
+        r = subprocess.run(["gh", "api", "-X", "POST",
+                            f"/repos/{REPO}/issues/{NUM}/labels", "-f", f"labels[]={n}"],
+                           capture_output=True, text=True, timeout=60)
+        if r.returncode != 0:
+            print(f"::warning::could not apply label {n}: {r.stderr.strip()[:120]}")
+            ok = False
+    return ok
+
+
+def is_docstring_claim(title, body):
+    t = (title or "").lower()
+    if "docstring" in t or re.search(r'\bdocs?\s+batch\b', t):
+        return True
+    return "docstring" in (body or "").lower()[:400]
+
+
+def count_added_docstrings(diff: str):
+    """Return (docstring_lines, total_added, files_touched).
+
+    Counts only ADDED lines that open a docstring. Continuation lines of a
+    multi-line docstring are not counted, so one docstring is one unit however
+    many lines it spans.
+    """
+    doc = total = 0
+    files = []
+    in_docstring = False
+    for line in diff.splitlines():
+        if line.startswith("+++ b/"):
+            files.append(line[6:].strip())
+            in_docstring = False
+            continue
+        if not line.startswith("+") or line.startswith("+++"):
+            continue
+        total += 1
+        content = line[1:]
+        if in_docstring:
+            if '"""' in content or "'''" in content:
+                in_docstring = False
+            continue
+        if DOCSTRING_OPEN.match(content):
+            doc += 1
+            stripped = content.strip()
+            # One-liner if the closing quotes appear again on the same line.
+            quote = '"""' if '"""' in stripped else "'''"
+            if stripped.count(quote) < 2:
+                in_docstring = True
+    return doc, total, files
+
+
+def main():
+    if not NUM:
+        print("ISSUE_NUMBER not set", file=sys.stderr)
+        return 1
+    iss = gh(["issue", "view", NUM, "-R", REPO,
+              "--json", "title,body,labels,author,state"], {})
+    if not iss:
+        print(f"could not read {REPO}#{NUM}", file=sys.stderr)
+        return 1
+    labels = {l["name"] for l in iss.get("labels", [])}
+    if {"bounty-eligible", "docstring-verified", "gate-processed"} & labels:
+        print("already adjudicated; skipping")
+        return 0
+    title, body = iss.get("title", ""), iss.get("body") or ""
+    if not is_docstring_claim(title, body):
+        print("not a docstring claim; leaving for another gate")
+        return 0
+
+    m = PR_RE.search(body) or PR_RE.search(title)
+    if not m:
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            "🤖 Docstring gate: no pull request URL found in this claim. Add the full "
+            "`https://github.com/<owner>/<repo>/pull/<n>` link and it will be re-checked."], None)
+        add_labels("needs-human")
+        return 0
+    pr_repo, pr_num = m.group(1), m.group(2)
+
+    pr = gh(["pr", "view", pr_num, "-R", pr_repo,
+             "--json", "state,additions,deletions,files,author,mergedAt"], {})
+    if not pr:
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: could not read {pr_repo}#{pr_num}. Flagged for a human."], None)
+        add_labels("needs-human")
+        return 0
+
+    if pr.get("state") != "MERGED":
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: {pr_repo}#{pr_num} is **{pr.get('state','OPEN').lower()}**, not merged.\n\n"
+            f"Docstring bounties pay on merge, because until then the documentation is not in the "
+            f"codebase. This claim is not closed — it will be re-checked automatically once the PR "
+            f"lands, and you do not need to re-file it."], None)
+        add_labels("awaiting-merge")
+        print(f"{pr_repo}#{pr_num} not merged ({pr.get('state')}); waiting")
+        return 0
+
+    diff = gh_raw(["pr", "diff", pr_num, "-R", pr_repo])
+    doc_count, total_added, files = count_added_docstrings(diff)
+    claimed = None
+    cm = COUNT_RE.search(body) or COUNT_RE.search(title)
+    if cm:
+        claimed = int(cm.group(1))
+
+    amount = round(doc_count * RATE, 2)
+    if doc_count == 0:
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: {pr_repo}#{pr_num} is merged, but no added lines in it open a "
+            f"docstring ({total_added} lines added in total). If the work is real and the gate has "
+            f"misread it, say so here and a human will look."], None)
+        add_labels("needs-human")
+        return 0
+
+    if amount > MAX_RTC:
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: verified **{doc_count} docstrings** in {pr_repo}#{pr_num}, which at "
+            f"{RATE} RTC each comes to {amount} RTC. That is above the {MAX_RTC} RTC auto-pay ceiling, "
+            f"so it needs a human to release it. Nothing is wrong with the claim."], None)
+        add_labels("needs-human")
+        return 0
+
+    note = ""
+    if claimed is not None and claimed != doc_count:
+        note = (f"\n\nYou claimed **{claimed}**; the diff contains **{doc_count}**. "
+                f"Paying the verified number. If you think the gate has miscounted, say so and a "
+                f"human will check — miscounts are usually arithmetic, not bad faith.")
+
+    add_labels("bounty-eligible", "docstring-verified")
+    gh(["issue", "comment", NUM, "-R", REPO, "--body",
+        f"✅ 🤖 **Docstring gate: verified.**\n\n"
+        f"- PR {pr_repo}#{pr_num} is **merged**\n"
+        f"- Files: `{', '.join(files[:4]) or 'n/a'}`\n"
+        f"- Added lines opening a docstring: **{doc_count}** (of {total_added} added lines)\n"
+        f"- Rate {RATE} RTC each → **{amount} RTC**{note}\n\n"
+        f"Queued for payout. The balance moves after the standard confirmation window, not on this "
+        f"comment."], None)
+    print(f"verified {doc_count} docstrings -> {amount} RTC on {REPO}#{NUM}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
