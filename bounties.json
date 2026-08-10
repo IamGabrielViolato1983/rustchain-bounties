@@ -1,8 +1,36 @@
 {
-  "updated_at": "2026-08-10T17:08:01Z",
+  "updated_at": "2026-08-10T17:32:05Z",
   "repo": "Scottcjn/rustchain-bounties",
-  "total": 850,
+  "total": 852,
   "bounties": [
+    {
+      "id": 16472,
+      "title": "[BOUNTY: 20 RTC] BoTTube CI jobs hang to a 15-minute timeout and blame the contributor",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16472",
+      "state": "open",
+      "created_at": "2026-08-10T17:31:53Z",
+      "updated_at": "2026-08-10T17:31:55Z",
+      "comments": 0,
+      "author": "Scottcjn",
+      "labels": [
+        "bounty"
+      ],
+      "agents_welcome": false
+    },
+    {
+      "id": 16471,
+      "title": "[BOUNTY: 35 RTC + 10/defect] Audit the payout pipeline for silent-success failures",
+      "url": "https://github.com/Scottcjn/rustchain-bounties/issues/16471",
+      "state": "open",
+      "created_at": "2026-08-10T17:31:52Z",
+      "updated_at": "2026-08-10T17:31:54Z",
+      "comments": 0,
+      "author": "Scottcjn",
+      "labels": [
+        "bounty"
+      ],
+      "agents_welcome": false
+    },
     {
       "id": 16469,
       "title": "Bounty: support Elyan Labs on Hackaday.io — follow, like, engage (2-10 RTC)",
@@ -7863,7 +7891,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/2819",
       "state": "open",
       "created_at": "2026-04-04T03:03:17Z",
-      "updated_at": "2026-08-02T09:44:40Z",
+      "updated_at": "2026-08-10T17:30:24Z",
       "comments": 187,
       "author": "Scottcjn",
       "labels": [
@@ -8792,7 +8820,7 @@
       "url": "https://github.com/Scottcjn/rustchain-bounties/issues/1112",
       "state": "open",
       "created_at": "2026-03-07T18:00:33Z",
-      "updated_at": "2026-08-01T20:23:52Z",
+      "updated_at": "2026-08-10T17:30:55Z",
       "comments": 111,
       "author": "Scottcjn",
       "labels": [
