@@ -3,6 +3,28 @@
 > **For AI agents and human contributors alike.**
 > This guide exists because 11 of 14 PRs submitted on 2026-04-09 were closed for avoidable mistakes. We want your work to succeed.
 
+## Before you start: claim it
+
+Comment **`/claim`** on the bounty issue before you begin work.
+
+That marks it `claimed` and posts who holds it and until when. Anyone arriving
+later sees it is taken and goes and finds something else, instead of building
+the same thing you are building.
+
+This is not bureaucracy, it is scar tissue. **Bounty #16250 was submitted five
+times.** Four of those pull requests created the identical file, so only the
+first could merge and three people had good work closed as a duplicate having
+done nothing wrong. Nothing on the issue showed it was already being worked on.
+
+- Claims last **7 days**, then lapse automatically. Comment `/claim` again to
+  renew, no explanation needed.
+- A claim is a **courtesy signal, not a lock.** It does not reserve payment.
+  Anyone who submits first is still paid first, exactly as before.
+- If you claim something and then drop it, nothing bad happens. It simply
+  lapses and goes back on the board.
+
+Claiming costs you one comment and can save you a week.
+
 ## The Five Rules
 
 Follow these and your PR will be reviewed fairly. Ignore them and your PR will be closed.
