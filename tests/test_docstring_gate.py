@@ -106,7 +106,7 @@ class WeeklyCeilingTests(unittest.TestCase):
         """Fake N prior verified claims carrying these payout markers."""
         items = [{"number": 900 + i, "body": ""} for i in range(len(amounts))]
 
-        def fake(args, default=None):
+        def fake(args, default=None, strict=False):
             joined = " ".join(args)
             if "search/issues" in joined:
                 return {"items": items}
