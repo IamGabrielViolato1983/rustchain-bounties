@@ -71,11 +71,37 @@ FILE_RE = re.compile(r'(?:^|\s)((?:[\w.-]+/)*[\w.-]+\.py)\b')
 DOCSTRING_OPEN = re.compile(r'^\s*[rRbBuU]{0,2}("""|\'\'\')')
 
 
-def gh(args, default=None):
+class GhError(RuntimeError):
+    """A `gh` invocation failed. Must never be mistaken for an empty result."""
+
+
+def gh(args, default=None, strict=False):
+    """Run `gh` and parse JSON.
+
+    `strict=True` raises on failure instead of returning `default`. That matters
+    wherever the result feeds a MONEY decision: the earnings lookup behind the
+    weekly cap returned `{}` on any CLI/auth/rate-limit failure, which
+    `docstring_rtc_this_week()` then reported as 0.0 RTC already earned. A
+    contributor already over the 40 RTC/week ceiling was therefore treated as
+    having earned nothing, and the cap failed OPEN. A failed lookup is not an
+    authoritative zero.
+    """
     try:
         p = subprocess.run(["gh"] + args, capture_output=True, text=True, timeout=120)
+    except Exception as e:
+        if strict:
+            raise GhError(f"gh {' '.join(args[:3])} failed: {e}") from e
+        return default
+    if p.returncode != 0:
+        if strict:
+            raise GhError(f"gh {' '.join(args[:3])} exited {p.returncode}: "
+                          f"{(p.stderr or '').strip()[:200]}")
+        return default
+    try:
         return json.loads(p.stdout) if p.stdout.strip() else default
-    except Exception:
+    except json.JSONDecodeError as e:
+        if strict:
+            raise GhError(f"gh {' '.join(args[:3])} returned unparseable JSON: {e}") from e
         return default
 
 
@@ -119,14 +145,14 @@ def docstring_rtc_this_week(author):
              - datetime.timedelta(days=7)).strftime("%Y-%m-%d")
     q = (f"repo:{REPO} is:issue author:{author} label:docstring-verified "
          f"created:>{since}")
-    res = gh(["api", "-X", "GET", "search/issues", "-f", f"q={q}", "-f", "per_page=100"], {})
+    res = gh(["api", "-X", "GET", "search/issues", "-f", f"q={q}", "-f", "per_page=100"], {}, strict=True)
     total = 0.0
     for it in (res.get("items") or []):
         if str(it.get("number")) == str(NUM):
             continue          # never count the claim being adjudicated
         body = it.get("body") or ""
         # The marker lives in a gate comment, not the issue body, so fetch them.
-        cs = gh(["api", f"/repos/{REPO}/issues/{it['number']}/comments?per_page=100"], []) or []
+        cs = gh(["api", f"/repos/{REPO}/issues/{it['number']}/comments?per_page=100"], [], strict=True) or []
         for c in cs:
             m = re.search(r'<!--\s*rtc-payout-amount:\s*([\d.]+)\s*-->', c.get("body") or "")
             if m:
@@ -237,7 +263,21 @@ def main():
         return 0
 
     author = (iss.get("author") or {}).get("login", "")
-    already = docstring_rtc_this_week(author) if author else 0.0
+    try:
+        already = docstring_rtc_this_week(author) if author else 0.0
+    except GhError as e:
+        # Cannot establish prior earnings => cannot honour the cap => do not pay.
+        # Failing closed is the whole point; the previous behaviour approved the
+        # claim as though the contributor had earned nothing this week.
+        gh(["issue", "comment", NUM, "-R", REPO, "--body",
+            f"🤖 Docstring gate: verified **{doc_count} docstrings** in {pr_repo}#{pr_num}, but the "
+            f"weekly-earnings lookup failed, so the {MAX_RTC_PER_WEEK:g} RTC/week cap cannot be "
+            f"checked right now.\n\nHolding rather than approving — a failed lookup is not proof "
+            f"that you have earned nothing. This retries automatically on the next sweep; you do "
+            f"not need to do anything."], None)
+        add_labels("needs-human")
+        print(f"::error::earnings lookup failed, refusing to approve: {e}")
+        return 0
     if already + amount > MAX_RTC_PER_WEEK:
         add_labels("weekly-cap-reached")
         gh(["issue", "comment", NUM, "-R", REPO, "--body",
